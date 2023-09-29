@@ -1,0 +1,183 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-family: sans-sarif;
+  box-sizing: border-box;
+  font-size: 100%;
+  scroll-behavior: smooth;
+}
+
+@media (max-width: 75em) {
+  html {
+    font-size: 50%;
+  }
+}
+
+h1 {
+  color: #07090F;
+  font-size: 6rem
+}
+
+body {
+  font-family: sans-serif;
+  font-size: 1.8rem; /* 18px */
+  font-weight: 400;
+  line-height: 1.4;
+  color: #07090F;
+}
+
+h1,
+h2 {
+  font-family: sans-serif;
+  font-weight: 700;
+  text-align: center;
+}
+
+.contact-header {
+  border: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  color: #B7CBBF;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+.nav {
+  display: flex;
+  justify-content: flex-end;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #4B644A;
+  box-shadow: 0 6px 0 #B36A5E;
+}
+
+.nav-list {
+  display: flex;
+  margin-right: 2rem;
+}
+
+@media (max-width: 27.55em) {
+  .nav {
+    justify-content: center;
+  }
+
+  .nav-list {
+    margin: 0 2rem;
+  }
+}
+
+.nav-list a {
+  display: block;
+  font-size: 2.5rem;
+  padding: 2rem;
+}
+
+.nav-list a:hover {
+  background: #B36A5E;
+}
+
+.welcome-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-color: #C8C6AF;
+}
+
+.welcome-section > p {
+  font-size: 3rem;
+  font-weight: 200;
+  font-style: italic;
+}
+
+.projects-section {
+  text-align: center;
+  padding: 10rem 2rem;
+}
+
+.projects-header {
+  font-size: 5rem;
+  text-align: center;
+  padding-bottom: 5rem;
+}
+
+@media (max-width: 27.77em) {
+  .projects-section-header {
+    font-size: 4rem;
+  }
+}
+.projects-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-gap: 3rem;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  margin-bottom: 8rem;
+}
+
+.project-image {
+  height: calc(100% - 6.8rem);
+  width: 100%;
+  object-fit: cover;
+}
+
+.project-title {
+  font-size: 3rem;
+  padding: 2rem 0.5rem;
+}
+
+.contact-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 80vh;
+  padding: 0 2rem;
+  background: #C8C6AF;
+}
+
+.contact-section-header > h2 {
+  font-size: 7rem;
+}
+
+
+.contact-section-header > p {
+  font-style: italic;
+  text-align: center;
+  font-size: 4rem;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 990px;
+  margin-top: 5rem;
+  margin-right: 5rem;
+  margin-left: 5rem;
+  font-size: 3rem;
+  
+}
+
+
+** end of undefined **
+
