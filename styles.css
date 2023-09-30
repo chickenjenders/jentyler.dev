@@ -46,7 +46,7 @@ ul {
 }
 
 a {
-  color: #B7CBBF;
+  color: black;
 }
 
 img {
@@ -154,6 +154,9 @@ img {
   width: 100%;
   height: 80vh;
   padding: 0 2rem;
+}
+
+#contact {
   background: #C8C6AF;
 }
 
@@ -175,13 +178,14 @@ img {
   margin-right: 5rem;
   margin-left: 5rem;
   font-size: 3rem;
-  
 }
 
 .github {
   margin-left: 5rem;
+  color: #4d84bc;
 }
 
 .linked {
   margin-right: 5rem;
+  color: #4d84bc;
 }
