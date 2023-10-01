@@ -62,7 +62,6 @@ img {
   left: 0;
   width: 100%;
   background: #3e5641;
-  box-shadow: 0 6px 0 #B36A5E;
 }
 
 .nav-list {
@@ -83,7 +82,7 @@ img {
 .nav-list a {
   display: block;
   font-size: 2.5rem;
-  padding: 2rem;
+  padding: 1rem;
 }
 
 .nav-list a:hover {
