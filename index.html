@@ -25,6 +25,19 @@
       </li>
     </ul>
   </nav>
+  <script>
+    window.onscroll = function () { scrollFunction() };
+
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+
+        document.getElementById("navbar").style.background = "#501e27";
+      } else {
+
+        document.getElementById("navbar").style.background = "none";
+      }
+    }
+  </script>
   <section id="welcome-section" class="welcome-section">
     <h1>Hey, I am Jen!</h1>
     <p>~a web developer~</p>
