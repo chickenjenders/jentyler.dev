@@ -61,7 +61,7 @@ img {
   top: 0;
   left: 0;
   width: 100%;
-  background: #3e5641;
+  background-color: transparent;
 }
 
 .nav-list {
@@ -103,6 +103,15 @@ img {
   font-size: 3rem;
   font-weight: 200;
   font-style: italic;
+}
+
+.about > h2 {
+    font-size: large;
+    color: black;
+}
+
+.about > p {
+  color: https://www.jentyler.dev/
 }
 
 .projects-section {
