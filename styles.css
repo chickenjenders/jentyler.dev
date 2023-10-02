@@ -69,22 +69,28 @@ img {
   display: flex;
   justify-content: space-between;
   position: fixed;
-  top: 0;
-  left: 0;
+  height: 44px;
   width: 100%;
   background-color: transparent;
-  font-size: 30px;
   color: white;
 
   & a {
-    padding: 1rem;
+    padding: 10px;
     color: white;
     text-decoration: none;
+    font-size: 20px;
     &:hover {
       text-decoration: underline;
     }
     &:visited {
       color: white;
+    }
+    & .logo-image {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-top: -6px;
     }
   }
 
@@ -110,6 +116,7 @@ img {
   .profile-img {
     height: 30rem;
     width: auto;
+    border-radius: 50%;
   }
 
   & p {
