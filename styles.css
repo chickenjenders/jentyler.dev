@@ -121,9 +121,11 @@ img {
 .about {
   background-color: #3b5249;
   text-align: center;
-  padding-bottom: 10rem;
+  padding-top: 10rem;
   & p {
     font-size: 20px;
+    float: left;
+    padding-bottom: 12rem;
   }
 }
 
