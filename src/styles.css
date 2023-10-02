@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: inherit;
+  color: white;
 }
 
 html {
@@ -18,7 +19,6 @@ html {
 }
 
 h1 {
-  color: #07090f;
   font-size: 6rem;
 }
 
@@ -27,7 +27,6 @@ body {
   font-size: 1.8rem; /* 18px */
   font-weight: 400;
   line-height: 1.4;
-  color: #07090f;
 }
 
 h1,
@@ -45,10 +44,6 @@ ul {
   list-style: none;
 }
 
-a {
-  color: black;
-}
-
 img {
   display: block;
   width: 100%;
@@ -56,7 +51,7 @@ img {
 
 .nav {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   position: fixed;
   top: 0;
   left: 0;
@@ -89,6 +84,11 @@ img {
   background: #b36a5e;
 }
 
+.name-tag {
+  display: flex;
+  justify-content: space-between;
+}
+
 .welcome-section {
   display: flex;
   flex-direction: column;
@@ -96,7 +96,7 @@ img {
   align-items: center;
   width: 100%;
   height: 100vh;
-  background-color: #c8c6af;
+  background-color: #264027;
 }
 
 .welcome-section > p {
@@ -107,11 +107,10 @@ img {
 
 .about > h2 {
   font-size: large;
-  color: black;
 }
 
 .about > p {
-  color: black;
+  font-size: 2rem;
 }
 
 .projects-section {
@@ -150,7 +149,6 @@ img {
   font-size: 3rem;
   padding: 2rem 0.5rem;
   background-color: #b36a5e;
-  color: black;
 }
 
 .contact-section {
