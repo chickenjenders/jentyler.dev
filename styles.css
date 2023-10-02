@@ -5,10 +5,12 @@
 }
 
 html {
-  font-family: Georgia, serif;
+  font-family: Verdana, sans-serif;
   box-sizing: border-box;
-  font-size: 100%;
+  font-size: 15px;
+  line-height: 1.5;
   scroll-behavior: smooth;
+  color: white;
 }
 
 @media (max-width: 75em) {
@@ -18,8 +20,15 @@ html {
 }
 
 h1 {
-  color: #07090f;
-  font-size: 6rem;
+  font-size: 7rem;
+}
+
+h2 {
+  font-size: 5rem;
+}
+
+h3 {
+  font-size: 35px;
 }
 
 body {
@@ -27,26 +36,28 @@ body {
   font-size: 1.8rem; /* 18px */
   font-weight: 400;
   line-height: 1.4;
-  color: #07090f;
 }
 
 h1,
 h2 {
-  font-family: sans-serif;
   font-weight: 700;
   text-align: center;
 }
+@media (min-width: 27.55em) {
+  .nav {
+    justify-content: center;
+  }
 
+  .nav-list {
+    margin: 0 2rem;
+  }
+}
 .contact-header {
   border: 0;
 }
 
 ul {
   list-style: none;
-}
-
-a {
-  color: black;
 }
 
 img {
@@ -56,62 +67,61 @@ img {
 
 .nav {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   background-color: transparent;
-}
+  font-size: 30px;
+  color: white;
 
-.nav-list {
-  display: flex;
-  margin-right: 2rem;
-}
-
-@media (max-width: 27.55em) {
-  .nav {
-    justify-content: center;
+  & a {
+    padding: 1rem;
+    color: white;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+    &:visited {
+      color: white;
+    }
   }
 
   .nav-list {
-    margin: 0 2rem;
+    display: flex;
+    margin-right: 2rem;
   }
-}
-
-.nav-list a {
-  display: block;
-  font-size: 2.5rem;
-  padding: 1rem;
-}
-
-.nav-list a:hover {
-  background: #b36a5e;
 }
 
 .welcome-section {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   width: 100%;
   height: 100vh;
-  background-color: #c8c6af;
+  background-color: #3b5249;
+  column-gap: 4rem;
+
+  @media (max-width: 48rem) {
+    flex-direction: column;
+  }
+  .profile-img {
+    height: 30rem;
+    width: auto;
+  }
+
+  & p {
+    font-weight: 200;
+    font-style: italic;
+  }
 }
 
-.welcome-section > p {
-  font-size: 3rem;
-  font-weight: 200;
-  font-style: italic;
-}
-
-.about > h2 {
-  font-size: large;
-  color: black;
-}
-
-.about > p {
-  color: black;
+.about {
+  background-color: #3b5249;
+  text-align: center;
+  padding-bottom: 5rem;
 }
 
 .projects-section {
@@ -123,76 +133,58 @@ img {
   font-size: 5rem;
   text-align: center;
   padding-bottom: 5rem;
+  background-color: #3b5249;
 }
 
-@media (max-width: 27.77em) {
-  .projects-section-header {
-    font-size: 4rem;
-  }
-}
 .projects-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   grid-gap: 3rem;
   width: 100%;
-  max-width: 1280px;
   margin: 0 auto;
-  margin-bottom: 8rem;
+  background-color: #3b5249;
+  .project {
+    text-decoration: none;
+    .project-image {
+      height: calc(100% - 6.8rem);
+      width: 100%;
+      object-fit: cover;
+    }
+    .project-title {
+      font-size: 30px;
+      background-color: #1e352f;
+      text-align: center;
+      color: white;
+    }
+  }
 }
 
-.project-image {
-  height: calc(100% - 6.8rem);
-  width: 100%;
-  object-fit: cover;
-}
+.contact {
+  background: #3b5249;
 
-.project-title {
-  font-size: 3rem;
-  padding: 2rem 0.5rem;
-  background-color: #b36a5e;
-  color: black;
-}
+  & h2 {
+    font-size: 45px;
+  }
 
-.contact-section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  width: 100%;
-  height: 80vh;
-  padding: 0 2rem;
-}
-
-#contact {
-  background: #c8c6af;
-}
-
-.contact-section-header > h2 {
-  font-size: 7rem;
-}
-
-.contact-section-header > p {
-  font-style: italic;
-  text-align: center;
-  font-size: 4rem;
-}
-
-.contact-links {
-  display: flex;
-  justify-content: center;
-  margin-top: 5rem;
-  margin-right: 5rem;
-  margin-left: 5rem;
-  font-size: 3rem;
-}
-
-.github {
-  margin-left: 5rem;
-  color: #4d84bc;
-}
-
-.linked {
-  margin-right: 5rem;
-  color: #4d84bc;
+  & p {
+    font-style: italic;
+    text-align: center;
+    font-size: 40px;
+  }
+  .contact-links {
+    display: flex;
+    justify-content: center;
+    margin-top: 5rem;
+    margin-right: 5rem;
+    margin-left: 5rem;
+    font-size: 35px;
+    .github {
+      margin-left: 5rem;
+      color: #4d84bc;
+    }
+    .linked {
+      margin-right: 5rem;
+      color: #4d84bc;
+    }
+  }
 }

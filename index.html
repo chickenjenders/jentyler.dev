@@ -10,10 +10,8 @@
 
 <body>
   <nav id="navbar" class="nav">
+    <a href="#welcome-section">Jen T</a>
     <ul class="nav-list">
-      <li>
-        <a href="#welcome-section">Jen T</a>
-      </li>
       <li>
         <a href="#about">About</a>
       </li>
@@ -25,43 +23,42 @@
       </li>
     </ul>
   </nav>
-  <script>
-    window.onscroll = () => { scrollFunction() };
 
-    function scrollFunction() {
-      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
 
-        document.getElementById("navbar").style.background = "#501e27";
-      } else {
-
-        document.getElementById("navbar").style.background = "none";
-      }
-    }
-  </script>
   <section id="welcome-section" class="welcome-section">
-    <h1>Hey, I am Jen!</h1>
-    <p>~a web developer~</p>
+    <img class="profile-img" src="./jenprofile.jpeg" alt="">
+    <div class="welcome-heading">
+      <h1>Hey, I am Jen!</h1>
+      <h2>~a web developer~</h2>
+    </div>
+
+
+
   </section>
-  <section id="about">
+
+  <section id="about" class="about">
     <h2>About Me</h2>
     <p>I am hoping this works and I can type something meaningful later</p>
   </section>
-  <h2 class="projects-header">Projects</h2>
+
+  <h2 id="projects-header" class="projects-header">Projects</h2>
   <section class="projects-container">
-    <a href="https://editor.p5js.org/chickenjenders/sketches/DWzgBV1j7">
-      <img class="project-image"
-        src="https://happycoding.io/tutorials/p5js/animation/images/flickering-jack-o-lantern-2.gif" />
+
+    <a href="./survey.html" class="project">
+      <img class="project-image" src="./survey.jpeg" />
       <p class="project-title">
-        Flashing Pumpkin
+        freeCodeCamp Survey Form Certification Project
       </p>
     </a>
-    <a href="https://editor.p5js.org/chickenjenders/sketches/S5TILHUKe" target="_blank" class="project-tile">
+
+    <a href="https://editor.p5js.org/chickenjenders/sketches/S5TILHUKe" target="_blank" class="project">
       <img class="project-image" src="https://www.imaginarycloud.com/blog/content/images/2019/02/Pong.jpg" />
       <p class="project-title">
         Pong Clone
       </p>
     </a>
-    <a href="https://editor.p5js.org/chickenjenders/sketches/K_ANNes_d" target="_blank" class="project-title">
+
+    <a href="https://editor.p5js.org/chickenjenders/sketches/K_ANNes_d" target="_blank" class="project">
       <img class="project-image"
         src="https://happycoding.io/tutorials/p5js/creating-classes/images/bonsai-tree-3.png" />
       <p class="project-title">
@@ -69,16 +66,32 @@
       </p>
     </a>
   </section>
+
   <section id="contact" class="contact">
     <div class="contact-section-header">
       <h2 id="contact-header">Let's work together...</h2>
       <p>Pretty Please :)</p>
     </div>
+
     <div class="contact-links">
       <a class="linked" href="https://www.linkedin.com/in/jennifer-tyler-7197501b7/" target="_blank">LinkedIn</a>
       <a class="github" href="https://github.com/chickenjenders" target="_blank">GitHub</a>
     </div>
   </section>
 </body>
+
+<script>
+  window.onscroll = () => { scrollFunction() };
+
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+
+      document.getElementById("navbar").style.background = "#1e352f";
+    } else {
+
+      document.getElementById("navbar").style.background = "none";
+    }
+  }
+</script>
 
 </html>
