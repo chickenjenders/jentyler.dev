@@ -86,11 +86,9 @@ img {
       color: white;
     }
     & .logo-image {
-      width: 46px;
-      height: 46px;
-      border-radius: 50%;
+      width: 95px;
+      height: 65px;
       overflow: hidden;
-      margin-top: -6px;
     }
   }
 
