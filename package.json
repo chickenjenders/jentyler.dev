@@ -1,0 +1,20 @@
+{
+  "name": "marriage-website",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@fontsource-variable/cinzel": "^5.0.8",
+    "@fontsource-variable/noto-serif-display": "^5.0.18",
+    "@fontsource-variable/nunito-sans": "^5.0.9",
+    "@fontsource-variable/playfair-display": "^5.0.18",
+    "@fontsource/cormorant-garamond": "^5.0.8",
+    "astro": "^3.4.0"
+  }
+}

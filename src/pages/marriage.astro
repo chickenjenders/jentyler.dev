@@ -1,0 +1,88 @@
+---
+import "../marriage.css";
+import { Image, Picture } from "astro:assets";
+import Layout from "../layouts/Layout.astro";
+import handj from "../assets/handj.jpg";
+import jhnobg from "../assets/jhnobg.png";
+---
+
+<Layout title="Welcome to Our Website.">
+  <header class="header">
+    <h1 class="title">SIM HO & JENNIFER</h1>
+    <div class="header-image-container">
+      <Picture
+        class="header-image"
+        src={handj}
+        alt="jen and sim ho background"
+        height="620"
+      />
+      <Picture class="people" src={jhnobg} height="500" alt="jen and sim ho" />
+    </div>
+    <a class="pushable" href="/gallery">
+      <span class="shadow"></span>
+      <span class="edge"></span>
+      <span class="front"> See Our Pics!</span>
+    </a>
+  </header>
+
+  <section>
+    <h2 class="story-title">OUR STORY</h2>
+    <p class="story">
+      When studying abroad in South Korea in August of 2019, Jen joined her
+      friends on the school tour led by a local student volunteer - Sim Ho.
+      After seeing her reaction to the cafeteria pasta he recommended, Sim Ho
+      promised to take her to a better meal without knowing this is how their
+      story would start. Almost two years, several visits, and a Korean Army
+      Service later, the two would finally move in together and eventually get
+      to right now: married!
+    </p>
+  </section>
+
+  <section>
+    <h2 class="story-title">Q & A</h2>
+
+    <div class="qa-container">
+      <div class="container-qs">
+        <div class="question">Can I see the pictures from the courthouse?</div>
+        <div class="answer">
+          Yes! <a href="link-to-your-photo-gallery">Click here</a> to view our
+          photo gallery.
+        </div>
+      </div>
+
+      <div class="container-qs">
+        <div class="question">
+          Are you sending any announcements I can decorate my house with?
+        </div>
+        <div class="answer">
+          Of course! Fill out our form below so we can send you our announcement
+          card for your keeping!
+        </div>
+      </div>
+
+      <div class="container-qs">
+        <div class="question">Are you having a formal wedding later?</div>
+        <div class="answer">
+          Definitely! We don’t have any current plans for one, so we don’t want
+          to make it seem like any “save the date” type mail should be coming
+          soon, but it will happen when we decide to!
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="bttn-container">
+    <h1>Looking For A Nice Picture to Hang on Your Fridge Indefinitely?</h1>
+    <h3>Press the Button Below to Fill Out Our Form</h3>
+    <a
+      class="pushable"
+      href="https://forms.gle/HRbyFGqrzh3tTZQa9"
+      target="_blank"
+    >
+      <span class="shadow"></span>
+      <span class="edge"></span>
+      <span class="front"> Send Me An Announcement!</span>
+    </a>
+  </div>
+</Layout>
+
+<style></style>

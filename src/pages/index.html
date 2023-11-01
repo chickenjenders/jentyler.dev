@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./styles.css" />
+  <title>My Portfolio</title>
+</head>
+
+<body>
+  <nav id="navbar" class="nav">
+    <a href="https://jentyler.dev">
+      <img class="logo-image" src="./JenT (2).png" />
+    </a>
+    <ul class="nav-list">
+      <li>
+        <a href="#about">About</a>
+      </li>
+      <li>
+        <a href="#work">Work</a>
+      </li>
+      <li>
+        <a href="#contact">Contact</a>
+      </li>
+    </ul>
+  </nav>
+
+  <section id="welcome-section" class="welcome-section">
+    <img class="profile-img" src="./jenprofile.jpeg" />
+    <div class="welcome-heading">
+      <h1>Hey, I am Jen!</h1>
+      <h2>~a web developer~</h2>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <h2>About Me</h2>
+    <p>
+      After graduating in 2021, I wanted to pursue a career where I could be
+      creative and build things I am passionate about. I really enjoyed
+      learning HTML, CSS, and technical art, so I am now taking graduate
+      classes and planning to continue with the Digital Media Master's
+      program. Besides web development and technical art, my hobbies include
+      baking/cooking, reading, journaling, crafts, and even learning game
+      development! I made this website to showcase a bit about myself, but
+      also to utilize my web development knowledge and keep building upon it
+      :)
+    </p>
+  </section>
+  <div class="work" id="work">
+    <h2 id="projects-header" class="projects-header">Projects</h2>
+  </div>
+  <section class="projects-container">
+    <a href="./survey.html" class="project" id="project">
+      <img class="project-image" src="./survey.jpeg" />
+      <p class="project-title">
+        freeCodeCamp Survey Form Certification Project
+      </p>
+    </a>
+
+    <a href="./pong.html" target="_blank" class="project">
+      <img class="project-image" src="./pong.jpeg" />
+      <p class="project-title">Pong Clone</p>
+    </a>
+
+    <a href="https://jentyler.dev" target="_blank" class="project">
+      <img class="project-image" src="./website.jpeg" />
+      <p class="project-title">Personal Website</p>
+    </a>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="contact-section-header">
+      <h2 id="contact-header">Let's Connect!</h2>
+      <p>Check Me Out :)</p>
+    </div>
+
+    <div class="contact-links">
+      <a class="linked" href="https://www.linkedin.com/in/jennifer-tyler-7197501b7/" target="_blank">LinkedIn</a>
+      <a class="github" href="https://github.com/chickenjenders" target="_blank">GitHub</a>
+    </div>
+  </section>
+</body>
+
+<script>
+  window.onscroll = () => {
+    scrollFunction();
+  };
+
+  function scrollFunction() {
+    if (
+      document.body.scrollTop > 20 ||
+      document.documentElement.scrollTop > 20
+    ) {
+      document.getElementById("navbar").style.background = "#1e352f";
+    } else {
+      document.getElementById("navbar").style.background = "none";
+    }
+  }
+</script>
+
+</html>
