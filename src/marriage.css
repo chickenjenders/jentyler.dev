@@ -167,6 +167,7 @@ a {
   cursor: pointer;
   outline-offset: 4px;
   transition: filter 250ms;
+  padding-top: 1rem;
 }
 .shadow {
   position: absolute;
