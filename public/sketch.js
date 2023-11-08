@@ -1,113 +1,87 @@
-let ball;
-let leftPaddle;
-let rightPaddle;
-let leftScore = 0;
-let rightScore = 0;
+let ghosts = [];
 
 function setup() {
-    createCanvas(800, 400);
-    ball = new Ball();
-    leftPaddle = new Paddle(true);
-    rightPaddle = new Paddle(false);
+  createCanvas(500,500);
+
+  for (let i = 0; i < 75; i++) {
+    ghosts.push(new Ghost());
+  }
+
+  noStroke();
 }
 
 function draw() {
-    background(0);
-
-    // Draw paddles and ball
-    leftPaddle.show();
-    rightPaddle.show();
-    ball.show();
-    
-    // Move paddles
-    leftPaddle.update();
-    rightPaddle.update();
-
-    // Check ball collision and update score
-    ball.update(leftPaddle, rightPaddle);
-
-    // Display score
-    textSize(32);
-    textAlign(CENTER, CENTER);
-    fill(255);
-    text(leftScore, width / 4, 50);
-    text(rightScore, 3 * width / 4, 50);
+  background(32);
+  for (const ghost of ghosts) {
+    ghost.moveAndDraw();
+  }
 }
 
-class Ball {
-    constructor() {
-        this.pos = createVector(width / 2, height / 2);
-        this.vel = createVector(random(-1, 1), random(-1, 1)).mult(5);
-        this.radius = 15;
+// This class keeps track of all the variables and functions
+class Ghost {
+
+  constructor() {
+
+    this.tail = [];
+    this.tailLength = 30;
+
+    // Give ghost a random size and starting position.
+    this.ghostSize = random(10, 100);
+    this.ghostX = random(width);
+    this.ghostY = random(height);
+
+    this.cosOffset = random(100);
+    this.wiggliness = random(8, 12);
+    this.floatiness = random(4, 8);
+
+
+    // Give this ghost a random color.
+    this.r = random(255);
+    this.g = random(255);
+    this.b = random(255);
+  }
+
+  moveAndDraw() {
+
+    // Move the ghost left and right.
+    this.ghostX += cos((this.cosOffset + frameCount) / 10) * this.wiggliness;
+    // Move the ghost up.
+    this.ghostY -= this.floatiness;
+    // If this ghost goes off the top, start it back at the bottom.
+    if (this.ghostY < -this.ghostSize) {
+      this.ghostY = height + this.ghostSize;
     }
 
-    show() {
-        fill(255);
-        noStroke();
-        ellipse(this.pos.x, this.pos.y, this.radius * 2);
+    // Add a point to the beginning of the array.
+    this.tail.unshift({x: this.ghostX, y: this.ghostY});
+    // If the array is too big, remove the last point.
+    if (this.tail.length > this.tailLength) {
+      this.tail.pop();
     }
 
-    update(leftPaddle, rightPaddle) {
-        // Move the ball
-        this.pos.add(this.vel);
 
-        // Ball collision with paddles
-        if (this.pos.x - this.radius < leftPaddle.x + leftPaddle.width / 2 &&
-            this.pos.x + this.radius > leftPaddle.x - leftPaddle.width / 2 &&
-            this.pos.y > leftPaddle.y - leftPaddle.height / 2 &&
-            this.pos.y < leftPaddle.y + leftPaddle.height / 2) {
-            this.vel.x *= -1;
-        } else if (this.pos.x - this.radius < rightPaddle.x + rightPaddle.width / 2 &&
-            this.pos.x + this.radius > rightPaddle.x - rightPaddle.width / 2 &&
-            this.pos.y > rightPaddle.y - rightPaddle.height / 2 &&
-            this.pos.y < rightPaddle.y + rightPaddle.height / 2) {
-            this.vel.x *= -1;
-        }
+    // Loop over the tail and draw the points.
+    for (let index = 0; index < this.tail.length; index++) {
+      const tailPoint = this.tail[index];
 
-        // Ball collision with walls
-        if (this.pos.y - this.radius < 0 || this.pos.y + this.radius > height) {
-            this.vel.y *= -1;
-        }
+      // Tail gets smaller and more transparent.
+      const pointSize = this.ghostSize * (this.tail.length - index) / this.tail.length;
+      const pointAlpha = 255 * (this.tail.length - index) / this.tail.length;
 
-        // Score update
-        if (this.pos.x - this.radius < 0) {
-            rightScore++;
-            this.reset();
-        } else if (this.pos.x + this.radius > width) {
-            leftScore++;
-            this.reset();
-        }
+      fill(this.r, this.g, this.b, pointAlpha);
+      ellipse(tailPoint.x, tailPoint.y, pointSize);
     }
 
-    reset() {
-        this.pos = createVector(width / 2, height / 2);
-        this.vel = createVector(random(-1, 1), random(-1, 1)).mult(5);
-    }
-}
-
-class Paddle {
-    constructor(isLeft) {
-        this.width = 10;
-        this.height = 80;
-        this.y = height / 2;
-        this.isLeft = isLeft;
-        this.x = isLeft ? this.width : width - this.width;
-    }
-
-    show() {
-        fill(255);
-        noStroke();
-        rectMode(CENTER);
-        rect(this.x, this.y, this.width, this.height);
-    }
-
-    update() {
-        if (this.isLeft) {
-            this.y = constrain(mouseY, this.height / 2, height - this.height / 2);
-        } else {
-            let target = ball.pos.y;
-            let diff = target - this.y;
-            this.y += diff * 0.1;
-        }
-    }
+    // Draw this ghost's face. O_O
+    fill(32);
+    ellipse(this.ghostX - this.ghostSize * .2,
+            this.ghostY - this.ghostSize * .1,
+            this.ghostSize * .2);
+    ellipse(this.ghostX + this.ghostSize * .2,
+            this.ghostY - this.ghostSize * .1,
+            this.ghostSize * .2);
+    ellipse(this.ghostX,
+            this.ghostY + this.ghostSize * .2,
+            this.ghostSize * .2);
+  }
 }
