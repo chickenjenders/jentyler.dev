@@ -1,0 +1,48 @@
+body {
+  background-color: #282c34;
+  color: #ffffff;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 20px;
+}
+
+.profile {
+  text-align: center;
+  width: 30%;
+}
+
+.profile-image {
+  background-color: #ddd;
+  height: 200px;
+  width: 200px;
+  margin: 20px auto;
+  border-radius: 50%;
+}
+
+.content {
+  display: inline-block;
+  justify-content: space-around;
+  align-items: center;
+  margin: 20px;
+}
+.project {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px;
+}
+
+.personality-image,
+.dragon-image,
+.walking-image {
+  background-color: #87ceeb;
+  height: 200px;
+  width: 200px;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+}

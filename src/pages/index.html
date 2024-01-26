@@ -1,76 +1,40 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="styles.css" />
-  <title>My Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Portfolio Page</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
+<html>
 
 <body>
-  <section id="welcome-section" class="welcome-section">
-    <img class="profile-img" src="./jenprofile.jpeg" />
-    <div class="welcome-heading">
-      <h1>Hey, I'm Jen!</h1>
-      <p>
-        I’m a web developer who needs to say a few more things about myself here. I’m currently studying for a Master of
-        Arts in Digital Media at the University of Central Florida. I also enjoy working on creative projects and hope
-        to
-        make my own video game.
-      </p>
+  <div class="container">
+    <div class="profile">
+      <div class="profile-image"><img src="assets/jenprofile.jpeg"></div>
+      <h1>Hi, I'm Jen!</h1>
+      <p>I am an aspiring web developer currently studying at UCF. I also enjoy working on creative projects and
+        hope to make my own video game.</p>
     </div>
-  </section>
-  <div class="work" id="work">
-    <h2 id="projects-header" class="projects-header">Projects</h2>
+    <div class="content">
+      <h1>Projects</h1>
+      <div class="project">
+        <div class="walking-image"></div>
+        <h2>Walking Game</h2>
+        <img src="">
+      </div>
+      <div class="project">
+        <div class="personality-image"></div>
+        <h2>Personality Quiz</h2>
+      </div>
+      <div class="project">
+        <div class="dragon-image"></div>
+        <h2>Dragon Battle RPG</h2>
+      </div>
+    </div>
   </div>
-  <section class="projects-container">
-    <a href="./survey.html" class="project" id="project">
-      <img class="project-image" src="./survey.jpeg" />
-      <p class="project-title">
-        freeCodeCamp Survey Form Certification Project
-      </p>
-    </a>
-
-    <a href="./circles.html" target="_blank" class="project">
-      <img class="project-image" src="./pong.jpeg" />
-      <p class="project-title">Pong Clone</p>
-    </a>
-
-    <a href="https://jentyler.dev" target="_blank" class="project">
-      <img class="project-image" src="./website.jpeg" />
-      <p class="project-title">Personal Website</p>
-    </a>
-  </section>
-
-  <section id="contact" class="contact">
-    <div class="contact-section-header">
-      <h2 id="contact-header">Let's Connect!</h2>
-      <p>Check Me Out :)</p>
-    </div>
-
-    <div class="contact-links">
-      <a class="linked" href="https://www.linkedin.com/in/jennifer-tyler-7197501b7/" target="_blank">LinkedIn</a>
-      <a class="github" href="https://github.com/chickenjenders" target="_blank">GitHub</a>
-    </div>
-  </section>
 </body>
-
-<script>
-  window.onscroll = () => {
-    scrollFunction();
-  };
-
-  function scrollFunction() {
-    if (
-      document.body.scrollTop > 20 ||
-      document.documentElement.scrollTop > 20
-    ) {
-      document.getElementById("navbar").style.background = "#1e352f";
-    } else {
-      document.getElementById("navbar").style.background = "none";
-    }
-  }
-</script>
 
 </html>
