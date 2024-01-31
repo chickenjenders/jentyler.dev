@@ -6,8 +6,6 @@ body {
 
 .container {
   display: flex;
-  justify-content: space-around;
-  align-items: center;
   margin: 20px;
 }
 
@@ -25,15 +23,13 @@ body {
 }
 
 .content {
-  display: inline-block;
-  justify-content: space-around;
-  align-items: center;
+  display: inline;
   margin: 20px;
+  align-items: right;
 }
 .project {
   display: flex;
-  justify-content: space-around;
-  margin: 20px;
+  margin: 0, 20px;
 }
 
 .personality-image,
