@@ -1,0 +1,18 @@
+---
+import { ViewTransitions } from "astro:transitions";
+import { Image } from "astro:assets";
+import walking from "../assets/walking.png";
+import "./projects.css";
+---
+
+<html lang="en">
+  <head>
+    <title>Walking Game</title>
+    <ViewTransitions />
+  </head>
+  <body>
+    <h1>Why Walk?</h1>
+    <div transition:name="walk"></div>
+    <Image class="project-tile" src={walking} alt="walking game image" />
+  </body>
+</html>

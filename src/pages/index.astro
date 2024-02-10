@@ -1,0 +1,68 @@
+---
+import { Image } from "astro:assets";
+import profile from "../assets/jenprofile.jpeg";
+import dragon from "../assets/dragon.png";
+import walking from "../assets/walking.png";
+import masks from "../assets/PASSWORD.png";
+import "./styles.css";
+import { ViewTransitions } from "astro:transitions";
+
+const projects = [
+  { title: "Why Walk?", image: walking, href: "walking" },
+  { title: "Dragon Battle RPG", image: dragon, href: "dragon" },
+  { title: "Guilty Masks", image: masks, href: "masks" },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Portfolio Page</title>
+    <link rel="stylesheet" href="styles.css" />
+    <ViewTransitions />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="profile">
+        <div>
+          <Image class="profile-image" src={profile} alt="me" />
+        </div>
+        <h1>Hi, I'm Jen!</h1>
+        <p>
+          I am an aspiring web and game developer currently studying Digital
+          Media at UCF. I dream of making my very own vintage style horror game
+          and websites better than my husband's.
+        </p>
+      </div>
+
+      <div class="projects">
+        <h1 class="project-header">Projects</h1>
+        {
+          projects.map((project, i) => {
+            return (
+              <a
+                href={"./" + project.href}
+                transition:name={project.href}
+                class="project-container"
+              >
+                <Image
+                  class="project-image"
+                  src={project.image}
+                  alt="project image"
+                />
+                <div class="project-info">
+                  <h2>{project.title}</h2>
+                  <p>test</p>
+                </div>
+              </a>
+            );
+          })
+        }
+      </div>
+    </div>
+  </body>
+</html>

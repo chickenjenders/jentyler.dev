@@ -1,0 +1,18 @@
+---
+import { ViewTransitions } from "astro:transitions";
+import { Image } from "astro:assets";
+import dragon from "../assets/dragon.png";
+import "./projects.css";
+---
+
+<html lang="en">
+  <head>
+    <title>Dragon Battle RPG</title>
+    <ViewTransitions />
+  </head>
+  <body>
+    <h1>Dragon Battle RPG</h1>
+    <div transition:name="dragon"></div>
+    <Image class="project-tile" src={dragon} alt="dragon game image" />
+  </body>
+</html>

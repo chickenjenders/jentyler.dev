@@ -1,5 +1,5 @@
 body {
-  background-color: #282c34;
+  background-color: #1a2930;
   color: #ffffff;
   font-family: "Courier New", Courier, monospace;
 }
@@ -22,20 +22,37 @@ body {
   border-radius: 50%;
 }
 
-.content {
-  display: inline;
-  margin: 20px;
-  align-items: right;
-}
-.project {
+.project-image {
+  height: 250px;
+  width: 250px;
+  margin: 10px;
   display: flex;
-  margin: 0, 20px;
 }
 
-.project-tile {
-  height: 200px;
-  width: 200px;
-  margin: 20px;
+.projects {
+  align-items: center;
+  width: 100%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+}
+
+.project-container {
+  display: flex;
+  width: 75%;
+  text-decoration: none;
+}
+
+a {
+  color: #ffffff;
+}
+
+.project-info {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+* {
+  box-sizing: border-box;
 }

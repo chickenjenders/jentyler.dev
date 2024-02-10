@@ -1,0 +1,14 @@
+body {
+  background-color: #282c34;
+  color: #ffffff;
+  font-family: "Courier New", Courier, monospace;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-tile {
+  height: 500px;
+  width: 500px;
+  margin: 20px;
+}

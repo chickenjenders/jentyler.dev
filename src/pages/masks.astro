@@ -1,0 +1,18 @@
+---
+import { ViewTransitions } from "astro:transitions";
+import { Image } from "astro:assets";
+import masks from "../assets/PASSWORD.png";
+import "./projects.css";
+---
+
+<html lang="en">
+  <head>
+    <title>Guilty Masks</title>
+    <ViewTransitions />
+  </head>
+  <body class="body">
+    <h1>Guilty Masks</h1>
+    <div transition:name="masks"></div>
+    <Image class="project-tile" src={masks} alt="masks game image" />
+  </body>
+</html>
