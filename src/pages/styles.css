@@ -91,3 +91,14 @@ p {
   text-wrap: balance;
   text-align: center;
 }
+
+.icon-image {
+  filter: invert();
+  width: 22px;
+  height: 20px;
+  padding-right: 3px;
+}
+
+.icon-image:hover {
+  filter: saturate();
+}

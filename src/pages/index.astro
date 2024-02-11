@@ -4,6 +4,10 @@ import profile from "../assets/jenprofile.jpeg";
 import dragon from "../assets/dragon.png";
 import walking from "../assets/walking.png";
 import masks from "../assets/PASSWORD.png";
+import resume from "../assets/resume.png";
+import email from "../assets/email.png";
+import github from "../assets/github.png";
+import linkedin from "../assets/linkedin.png";
 import "./styles.css";
 import { ViewTransitions } from "astro:transitions";
 // Supports weights 300-700
@@ -54,11 +58,26 @@ const projects = [
           Media at UCF. I dream of making my very own vintage style horror game
           and websites better than my husband's.
         </p>
-        <div class="icons"></div>
+        <div class="icons">
+          <a
+            href="https://docs.google.com/document/d/1y6KogTM-77zl3HpO0swl2cJmguuPq9JP/edit?usp=sharing&ouid=112253065582950476881&rtpof=true&sd=true"
+            target="_blank"
+            ><Image src={resume} alt="resume" class="icon-image" /></a
+          >
+          <a href="https://linkedin.com/in/jen-tyler" target="_blank"
+            ><Image src={linkedin} alt="linkedin" class="icon-image" /></a
+          >
+          <a href="https://github.com/chickenjenders" target="_blank"
+            ><Image src={github} alt="github" class="icon-image" /></a
+          >
+          <a href="mailto: jgtyler99@gmail.com" target="_blank"
+            ><Image src={email} alt="email" class="icon-image" /></a
+          >
+        </div>
       </div>
 
       <div class="projects">
-        <h1 class="project-header">Projects</h1>
+        <h1 class="project-header">-Projects-</h1>
         {
           projects.map((project, i) => {
             return (

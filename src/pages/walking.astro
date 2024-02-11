@@ -9,16 +9,23 @@ import "@fontsource-variable/space-grotesk";
 
 <html lang="en">
   <head>
-    <title>Walking Game</title>
+    <title>Why Walk?</title>
     <ViewTransitions />
   </head>
   <body>
-    <div class="container">
-      <div transition:name="walk"></div>
-      <Image class="project-tile" src={walking} alt="walking game image" />
+    <div class="container" transition:name="walk">
+      <Image
+        class="project-tile"
+        src={walking}
+        alt="walking game image"
+        transition:name="walk-image"
+      />
       <div class="text">
         <h1>Why Walk?</h1>
-        <p>This game was made using P5.js.</p>
+        <p>
+          Why isn't there an educational game about walkable cities? Oh wait,
+          now there is! This game was made using P5.js.
+        </p>
       </div>
     </div>
   </body>
