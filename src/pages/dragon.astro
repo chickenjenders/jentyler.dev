@@ -13,8 +13,13 @@ import "@fontsource-variable/space-grotesk";
     <ViewTransitions />
   </head>
   <body>
-    <h1>Dragon Battle RPG</h1>
-    <div transition:name="dragon"></div>
-    <Image class="project-tile" src={dragon} alt="dragon game image" />
+    <div class="container">
+      <div transition:name="dragon"></div>
+      <Image class="project-tile" src={dragon} alt="project image" />
+      <div class="text">
+        <h1>Dragon Battle RPG</h1>
+        <p>This game was made using javascript.</p>
+      </div>
+    </div>
   </body>
 </html>

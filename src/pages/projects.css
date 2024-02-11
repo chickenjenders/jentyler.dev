@@ -11,4 +11,20 @@ body {
   height: 500px;
   width: 500px;
   margin: 20px;
+  border-radius: 6px;
+}
+
+.container {
+  display: flex;
+  width: 75%;
+  text-decoration: none;
+  padding-top: 10px;
+}
+
+.text {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 10px;
 }
