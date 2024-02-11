@@ -4,7 +4,7 @@ import { Image } from "astro:assets";
 import walking from "../assets/walking.png";
 import "./projects.css";
 // Supports weights 100-700
-import "@fontsource-variable/roboto-mono";
+import "@fontsource-variable/space-grotesk";
 ---
 
 <html lang="en">
@@ -13,8 +13,10 @@ import "@fontsource-variable/roboto-mono";
     <ViewTransitions />
   </head>
   <body>
-    <h1>Why Walk?</h1>
-    <div transition:name="walk"></div>
-    <Image class="project-tile" src={walking} alt="walking game image" />
+    <div class="container">
+      <div transition:name="walk"></div>
+      <Image class="project-tile" src={walking} alt="walking game image" />
+      <h1>Why Walk?</h1>
+    </div>
   </body>
 </html>
