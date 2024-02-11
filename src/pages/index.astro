@@ -6,8 +6,8 @@ import walking from "../assets/walking.png";
 import masks from "../assets/PASSWORD.png";
 import "./styles.css";
 import { ViewTransitions } from "astro:transitions";
-// Supports weights 100-700
-import "@fontsource-variable/roboto-mono";
+// Supports weights 300-700
+import "@fontsource-variable/space-grotesk";
 
 const projects = [
   {
@@ -49,7 +49,7 @@ const projects = [
           <Image class="profile-image" src={profile} alt="me" />
         </div>
         <h1>Hi, I'm Jen!</h1>
-        <p>
+        <p class="bio">
           I am an aspiring web and game developer currently studying Digital
           Media at UCF. I dream of making my very own vintage style horror game
           and websites better than my husband's.
@@ -74,7 +74,7 @@ const projects = [
                 />
                 <div class="project-info">
                   <h2>{project.title}</h2>
-                  <p>{project.info}</p>
+                  <p class="description">{project.info}</p>
                 </div>
               </a>
             );
