@@ -6,11 +6,28 @@ import walking from "../assets/walking.png";
 import masks from "../assets/PASSWORD.png";
 import "./styles.css";
 import { ViewTransitions } from "astro:transitions";
+// Supports weights 100-700
+import "@fontsource-variable/roboto-mono";
 
 const projects = [
-  { title: "Why Walk?", image: walking, href: "walking" },
-  { title: "Dragon Battle RPG", image: dragon, href: "dragon" },
-  { title: "Guilty Masks", image: masks, href: "masks" },
+  {
+    title: "Why Walk?",
+    image: walking,
+    href: "walking",
+    info: "Why isn't there an educational game about walkable cities? Oh wait, now there is!",
+  },
+  {
+    title: "Dragon Battle RPG",
+    image: dragon,
+    href: "dragon",
+    info: "Can you defeat the dragon in this RPG web game?",
+  },
+  {
+    title: "Guilty Masks",
+    image: masks,
+    href: "masks",
+    info: "Unmask your friends' secrets in this CYOA Twine game!",
+  },
 ];
 ---
 
@@ -37,6 +54,7 @@ const projects = [
           Media at UCF. I dream of making my very own vintage style horror game
           and websites better than my husband's.
         </p>
+        <div class="icons"></div>
       </div>
 
       <div class="projects">
@@ -56,7 +74,7 @@ const projects = [
                 />
                 <div class="project-info">
                   <h2>{project.title}</h2>
-                  <p>test</p>
+                  <p>{project.info}</p>
                 </div>
               </a>
             );
