@@ -4,10 +4,6 @@ import profile from "../assets/jenprofile.jpeg";
 import dragon from "../assets/dragon.png";
 import walking from "../assets/walking.png";
 import masks from "../assets/PASSWORD.png";
-import resume from "../assets/resume.png";
-import email from "../assets/email.png";
-import github from "../assets/github.png";
-import linkedin from "../assets/linkedin.png";
 import "./styles.css";
 import { ViewTransitions } from "astro:transitions";
 // Supports weights 300-700
@@ -54,24 +50,25 @@ const projects = [
         </div>
         <h1>Hi, I'm Jen!</h1>
         <p class="bio">
-          I am an aspiring web and game developer currently studying Digital
-          Media at UCF. I dream of making my very own vintage style horror game
-          and websites better than my husband's.
+          I'm an aspiring web and game developer currently studying Digital
+          Media at UCF. Striving to make my own vintage style horror game and
+          create unique and exciting websites.
         </p>
+
         <div class="icons">
           <a
             href="https://docs.google.com/document/d/1y6KogTM-77zl3HpO0swl2cJmguuPq9JP/edit?usp=sharing&ouid=112253065582950476881&rtpof=true&sd=true"
-            target="_blank"
-            ><Image src={resume} alt="resume" class="icon-image" /></a
+            target="_blank"><span class="mdi--resume icon-image"></span></a
           >
+
           <a href="https://linkedin.com/in/jen-tyler" target="_blank"
-            ><Image src={linkedin} alt="linkedin" class="icon-image" /></a
+            ><span class="mdi--linkedin icon-image"></span></a
           >
           <a href="https://github.com/chickenjenders" target="_blank"
-            ><Image src={github} alt="github" class="icon-image" /></a
+            ><span class="mdi--github icon-image"></span></a
           >
           <a href="mailto: jgtyler99@gmail.com" target="_blank"
-            ><Image src={email} alt="email" class="icon-image" /></a
+            ><span class="mdi--email icon-image"></span></a
           >
         </div>
       </div>
