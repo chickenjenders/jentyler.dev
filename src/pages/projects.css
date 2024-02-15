@@ -61,3 +61,10 @@ body {
 .back-arrow:hover {
   color: #ff9b71;
 }
+
+.links {
+  color: #f0f7f4;
+  &:hover {
+    color: #ff9b71;
+  }
+}
