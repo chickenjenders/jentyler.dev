@@ -10,6 +10,24 @@ body {
   margin: 20px;
 }
 
+@media only screen and (max-width: 800px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .profile {
+    display: flex;
+    justify-content: center;
+    max-width: fit-content;
+    min-width: 16rem;
+  }
+
+  .projects {
+    min-width: 635px;
+  }
+}
+
 .profile {
   text-align: center;
   width: 30%;
@@ -21,6 +39,7 @@ body {
   flex-direction: column;
   height: fit-content;
   padding: 10px;
+  max-width: auto;
 }
 
 .profile-image {
@@ -29,6 +48,7 @@ body {
   width: 200px;
   margin: 20px auto;
   border-radius: 50%;
+  max-width: auto;
 }
 
 .project-image {
