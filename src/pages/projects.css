@@ -71,7 +71,6 @@ body {
 
 @media only screen and (max-width: 800px) {
   .container {
-    display: flex;
     flex-direction: column;
     align-items: center;
   }
@@ -82,6 +81,6 @@ body {
   }
 
   .text {
-    min-width: 600px;
+    width: auto;
   }
 }
