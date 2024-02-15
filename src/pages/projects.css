@@ -68,3 +68,20 @@ body {
     color: #ff9b71;
   }
 }
+
+@media only screen and (max-width: 800px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .project-tile {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .text {
+    min-width: 600px;
+  }
+}
