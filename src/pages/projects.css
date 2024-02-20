@@ -84,4 +84,8 @@ body {
     width: auto;
     padding: 15px;
   }
+
+  .game-button {
+    border-width: auto;
+  }
 }
