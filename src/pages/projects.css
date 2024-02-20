@@ -82,5 +82,6 @@ body {
 
   .text {
     width: auto;
+    padding: 15px;
   }
 }

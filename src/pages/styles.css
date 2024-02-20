@@ -10,7 +10,28 @@ body {
   margin: 20px;
 }
 
-@media only screen and (max-width: 800px) {
+.profile {
+  text-align: center;
+  width: 30%;
+  border-style: groove;
+  border-radius: 10px;
+  border-color: #1a2930;
+  background-color: #243942;
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  padding: 10px;
+  max-width: auto;
+}
+
+.profile-image {
+  height: 200px;
+  width: 200px;
+  margin: 20px auto;
+  border-radius: 50%;
+  max-width: auto;
+}
+@media (max-width: 800px) {
   .container {
     flex-direction: column;
     align-items: center;
@@ -18,6 +39,8 @@ body {
   .profile {
     min-width: 16rem;
     min-height: auto;
+    border: 0;
+    background-color: transparent;
   }
 
   .project-container {
@@ -30,29 +53,6 @@ body {
   .project-info {
     min-width: auto;
   }
-}
-
-.profile {
-  text-align: center;
-  width: 30%;
-  border-style: groove;
-  border-radius: 5px;
-  border-color: #1a2930;
-  background-color: #243942;
-  display: flex;
-  flex-direction: column;
-  height: fit-content;
-  padding: 10px;
-  max-width: auto;
-}
-
-.profile-image {
-  background-color: #ddd;
-  height: 200px;
-  width: 200px;
-  margin: 20px auto;
-  border-radius: 50%;
-  max-width: auto;
 }
 
 .project-image {
