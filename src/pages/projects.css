@@ -86,6 +86,7 @@ body {
   }
 
   .game-button {
-    border-width: auto;
+    width: fit-content;
+    word-wrap: break-word;
   }
 }
