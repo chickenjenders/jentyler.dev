@@ -1,0 +1,32 @@
+---
+import { ViewTransitions } from "astro:transitions";
+import { Image } from "astro:assets";
+import roamer from "../assets/roamer.png";
+import "./projects.css";
+// Supports weights 100-700
+import "@fontsource-variable/space-grotesk";
+---
+
+<html lang="en">
+  <head>
+    <title>Roamer</title>
+    <ViewTransitions />
+  </head>
+  <body>
+    <a href="https://jentyler.dev"><span class="back-arrow"></span></a>
+    <div class="container" transition:name="walk">
+      <Image class="project-tile" src={roamer} alt="project image" />
+      <div class="text">
+        <h1>Roamer</h1>
+        <p>
+          Roamer is a website I made that contains a form of questions to answer
+          about your dream vacation. After you submit the form, GPT considers
+          your answers and creates a dream vacation plan custom to you.
+        </p>
+        <a href="https://chickenjenders.github.io/roamer/" target="_blank"
+          ><button type="button" class="game-button">Play Now!</button></a
+        >
+      </div>
+    </div>
+  </body>
+</html>

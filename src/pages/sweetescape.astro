@@ -1,0 +1,32 @@
+---
+import { ViewTransitions } from "astro:transitions";
+import { Image } from "astro:assets";
+import escape from "../assets/sweetescape.png";
+import "./projects.css";
+// Supports weights 100-700
+import "@fontsource-variable/space-grotesk";
+---
+
+<html lang="en">
+  <head>
+    <title>Sweet Escape</title>
+    <ViewTransitions />
+  </head>
+  <body>
+    <a href="https://jentyler.dev"><span class="back-arrow"></span></a>
+    <div class="container" transition:name="walk">
+      <Image class="project-tile" src={escape} alt="project image" />
+      <div class="text">
+        <h1>Sweet Escape</h1>
+        <p>
+          Sweet Escape is a point-and-click style escape room game I created
+          where you play as a girl scout desperately trying to sell all her
+          cookies, even if it means breaking and entering.
+        </p>
+        <a href="https://chickenjenders.github.io/sweetescape/" target="_blank"
+          ><button type="button" class="game-button">Play Now!</button></a
+        >
+      </div>
+    </div>
+  </body>
+</html>

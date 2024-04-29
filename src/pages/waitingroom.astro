@@ -1,0 +1,33 @@
+---
+import { ViewTransitions } from "astro:transitions";
+import { Image } from "astro:assets";
+import waiting from "../assets/waitingroom.png";
+import "./projects.css";
+// Supports weights 100-700
+import "@fontsource-variable/space-grotesk";
+---
+
+<html lang="en">
+  <head>
+    <title>Waiting Room</title>
+    <ViewTransitions />
+  </head>
+  <body>
+    <a href="https://jentyler.dev"><span class="back-arrow"></span></a>
+    <div class="container" transition:name="walk">
+      <Image class="project-tile" src={waiting} alt="project image" />
+      <div class="text">
+        <h1>Waiting Room</h1>
+        <p>
+          Waiting Room is a bitsy game I created to emulate the feeling of
+          guilt. The player must explore the rooms and interact with as much as
+          they can in order to understand the story and decide what to do by the
+          end of the game.
+        </p>
+        <a href="https://chickenjenders.github.io/waitingroom/" target="_blank"
+          ><button type="button" class="game-button">Play Now!</button></a
+        >
+      </div>
+    </div>
+  </body>
+</html>
