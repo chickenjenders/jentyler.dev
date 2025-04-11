@@ -7,12 +7,40 @@ import masks from "../assets/PASSWORD.png";
 import roamer from "../assets/roamer.png";
 import escape from "../assets/escape.png";
 import waiting from "../assets/waiting.png";
+import findalex from "../assets/findalex.png";
+import shattered from "../assets/shattered.png";
+import sightseeing from "../assets/sightseeing.png";
+import unknowncaller from "../assets/unknowncaller.png";
 import "./styles.css";
 import { ViewTransitions } from "astro:transitions";
 // Supports weights 300-700
 import "@fontsource-variable/space-grotesk";
 
 const projects = [
+  {
+    title: "Sightseeing",
+    image: sightseeing,
+    href: "sightseeing",
+    info: "A game about taking a hike at night and foraging for a snack. Two very great ideas that will result in absolutely nothing going wrong.",
+  },
+  {
+    title: "Alex is Missing",
+    image: findalex,
+    href: "findalex",
+    info: "Class project ARG revolving around Alex Valegro who was gone missing from UCF campus. Can you solve the puzzles she left behind and figure out what happened to her?",
+  },
+  {
+    title: "Shattered",
+    image: shattered,
+    href: "shattered",
+    info: "Consumerism can be ugly... it can also make you think you LOOK absolutely atrocious until you get all the latest things.",
+  },
+  {
+    title: "Uknown Caller",
+    image: unknowncaller,
+    href: "unknowncaller",
+    info: "You really should stop prank calling people, they are getting really tired of it.",
+  },
   {
     title: "Sweet Escape",
     image: escape,
@@ -72,8 +100,7 @@ const projects = [
         <h1>Hi, I'm Jen!</h1>
         <p class="bio">
           I'm an aspiring web and game developer currently studying Digital
-          Media at UCF. Striving to make my own vintage style horror game and
-          create unique and exciting websites.
+          Media at UCF. I specialize in spooky proejcts and unique web experiences!
         </p>
 
         <div class="icons">
