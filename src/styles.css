@@ -1,6 +1,6 @@
 body {
-  background-color: #1a2930;
-  color: #f0f7f4;
+  background-color: #0a0a0a; /* Changed from #1a2930 to a deep black */
+  color: #f0f0f0; /* Changed from #f0f7f4 to a pure white-ish */
   font-family: "Space Grotesk Variable", sans-serif;
 }
 
@@ -15,8 +15,8 @@ body {
   width: 30%;
   border-style: groove;
   border-radius: 10px;
-  border-color: #1a2930;
-  background-color: #243942;
+  border-color: #0a0a0a; /* Changed from #1a2930 to match body background */
+  background-color: #1c1c1c; /* Changed from #243942 to a lighter black */
   display: flex;
   flex-direction: column;
   height: fit-content;
@@ -32,6 +32,7 @@ body {
   border-radius: 50%;
   max-width: auto;
 }
+
 @media (max-width: 800px) {
   .container {
     flex-direction: column;
@@ -78,8 +79,8 @@ body {
   text-decoration: none;
   border-style: groove;
   border-radius: 15px;
-  border-color: #1a2930;
-  background-color: #243942;
+  border-color: #0a0a0a;
+  background-color: #1c1c1c;
   transition: all 0.35s ease-in-out;
   padding: 10px;
 }

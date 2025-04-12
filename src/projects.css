@@ -1,6 +1,6 @@
 body {
-  background-color: #1a2930;
-  color: #f0f7f4;
+  background-color: #0a0a0a; /* Changed from #1a2930 to deep black */
+  color: #f0f0f0; /* Changed from #f0f7f4 to white-ish */
   font-family: "Space Grotesk Variable", sans-serif;
   align-items: center;
 }
@@ -29,8 +29,8 @@ body {
 
 .game-button {
   font-family: "Space Grotesk Variable", sans-serif;
-  background-color: #b26e63;
-  color: #f0f7f4;
+  background-color: #333333; /* Changed from #b26e63 to dark gray */
+  color: #f0f0f0; /* Changed from #f0f7f4 to white-ish */
   border-radius: 8px;
   width: 100px;
   height: 30px;
@@ -39,7 +39,7 @@ body {
 }
 
 .game-button:hover {
-  background-color: #ff9b71;
+  background-color: #555555; /* Changed from #ff9b71 to medium gray */
 }
 
 .back-arrow {
@@ -50,7 +50,7 @@ body {
 
   --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cg fill='none' stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-width='4'%3E%3Cpath d='m13 8l-7 6l7 7'/%3E%3Cpath d='M6 14h22.994c6.883 0 12.728 5.62 12.996 12.5c.284 7.27-5.723 13.5-12.996 13.5H11.998'/%3E%3C/g%3E%3C/svg%3E");
   background-color: currentColor;
-  color: #f0f7f4;
+  color: #f0f0f0; /* Changed from #f0f7f4 to white-ish */
   -webkit-mask-image: var(--svg);
   mask-image: var(--svg);
   -webkit-mask-repeat: no-repeat;
@@ -60,13 +60,13 @@ body {
 }
 
 .back-arrow:hover {
-  color: #ff9b71;
+  color: #555555; /* Changed from #ff9b71 to medium gray */
 }
 
 .links {
-  color: #f0f7f4;
+  color: #f0f0f0; /* Changed from #f0f7f4 to white-ish */
   &:hover {
-    color: #ff9b71;
+    color: #555555; /* Changed from #ff9b71 to medium gray */
   }
 }
 
