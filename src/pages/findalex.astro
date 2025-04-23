@@ -1,7 +1,5 @@
 ---
 import { ViewTransitions } from "astro:transitions";
-import { Image } from "astro:assets";
-import dragon from "../assets/findalex.png";
 import "../projects.css";
 // Supports weights 100-700
 import "@fontsource-variable/space-grotesk";
@@ -15,7 +13,17 @@ import "@fontsource-variable/space-grotesk";
   <body>
     <a href="https://jentyler.dev"><span class="back-arrow"></span></a>
     <div class="container" transition:name="walk">
-      <Image class="project-tile" src={dragon} alt="project image" />
+      <div class="video-container">
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/DUug-EdRWdE?si=8m_-9_PI0_Zyu69p"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen></iframe>
+      </div>
       <div class="text">
         <h1>Alex is Missing</h1>
         <p>
@@ -44,8 +52,8 @@ import "@fontsource-variable/space-grotesk";
           design of the project.
         </p>
         <a href="https://findalex.netlify.app/" target="_blank"
-          ><button type="button" class="game-button">Play Now!</button></a
-        >
+          ><button type="button" class="game-button">Play Now!</button>
+        </a>
       </div>
     </div>
   </body>
