@@ -89,10 +89,42 @@ const projects = [
     <title>Portfolio Page</title>
     <link rel="stylesheet" href="styles.css" />
     <ViewTransitions />
+
+    <style>
+      /* Add VHS video overlay styles */
+      .vhs-video-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1000;
+        pointer-events: none;
+        opacity: 3; /* Adjust opacity as needed */
+        object-fit: cover;
+        mix-blend-mode: overlay; /* Try different blend modes: multiply, screen, overlay */
+      }
+
+      .vhs-hidden {
+        display: none;
+      }
+    </style>
   </head>
 
   <body>
-    <div class="container">
+    <!-- VHS effect video overlay -->
+    <video
+      id="vhs-effect"
+      class="vhs-video-overlay"
+      autoplay
+      loop
+      muted
+      playsinline
+    >
+      <source src="/vhs.mp4" type="video/mp4" />
+    </video>
+
+    <div class="container vhs-area">
       <div class="profile">
         <div>
           <Image class="profile-image" src={profile} alt="me" />
@@ -120,6 +152,7 @@ const projects = [
             ><span class="mdi--email icon-image"></span></a
           >
         </div>
+        <button id="vhs-toggle" aria-pressed="true"> Toggle VHS Filter </button>
       </div>
 
       <div class="projects">
@@ -152,5 +185,37 @@ const projects = [
         }
       </div>
     </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const btn = document.getElementById("vhs-toggle");
+        const vhsVideo = document.getElementById("vhs-effect");
+        const root = document.documentElement;
+
+        // Check for saved preference
+        const saved = localStorage.getItem("vhs");
+        if (saved === "off") {
+          vhsVideo.classList.add("vhs-hidden");
+          btn.setAttribute("aria-pressed", "false");
+        } else {
+          vhsVideo.classList.remove("vhs-hidden");
+          btn.setAttribute("aria-pressed", "true");
+        }
+
+        // Add click event listener
+        btn.addEventListener("click", () => {
+          const isHidden = vhsVideo.classList.contains("vhs-hidden");
+          if (isHidden) {
+            vhsVideo.classList.remove("vhs-hidden");
+            btn.setAttribute("aria-pressed", "true");
+            localStorage.setItem("vhs", "on");
+          } else {
+            vhsVideo.classList.add("vhs-hidden");
+            btn.setAttribute("aria-pressed", "false");
+            localStorage.setItem("vhs", "off");
+          }
+        });
+      });
+    </script>
   </body>
 </html>
