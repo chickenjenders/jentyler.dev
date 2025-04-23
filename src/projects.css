@@ -70,22 +70,6 @@ body {
   }
 }
 
-.video-container {
-  position: relative;
-  width: 100%;
-  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-  overflow: hidden;
-}
-
-.video-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 50%;
-  height: auto;
-  border-radius: 8px; /* Optional: if you want rounded corners like the image had */
-}
-
 @media only screen and (max-width: 800px) {
   .container {
     flex-direction: column;
