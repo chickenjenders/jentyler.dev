@@ -2,6 +2,8 @@ body {
   background-color: #121218; /* Dark midnight blue background */
   color: #e0e0ff; /* Cool white text */
   font-family: "Space Grotesk Variable", sans-serif;
+  display: flex;
+  justify-content: center;
 }
 
 .container {
