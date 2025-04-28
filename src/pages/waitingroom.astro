@@ -1,44 +1,38 @@
 ---
+import Layout from "../layouts/Layout.astro";
 import { ViewTransitions } from "astro:transitions";
 import { Image } from "astro:assets";
 import waiting from "../assets/waiting.png";
 import "../projects.css";
-// Supports weights 100-700
 import "@fontsource-variable/space-grotesk";
 ---
 
-<html lang="en">
-  <head>
-    <title>Waiting Room</title>
-    <ViewTransitions />
-  </head>
-  <body>
-    <a href="https://jentyler.dev"><span class="back-arrow"></span></a>
-    <div class="container" transition:name="walk">
-      <Image class="project-tile" src={waiting} alt="project image" />
-      <div class="text">
-        <h1>Waiting Room</h1>
-        <br />
-        Waiting Room is a short psychological horror game about guilt and acceptance.
-        The game is made using Bitsy, a very limited game engine that requires creative
-        solutions to utlize its full potential to create the game you want. I wanted
-        to emit the discomfort and anxiety of guilt through the engine's styling,
-        color palettes, and sound design.
-        <br />
-        <br />I used Bitsy hacks by Sean Leblanc in order to add the sounds used
-        in the game, as well as to match the HTML background to the game's
-        theme. Lastly, I modified an existing hack called "follower" that uses
-        JavaScript to have a sprite(s) follow the player around the game. Using
-        a BFS algorithm, along with some other changes to the code, I was able
-        to simulate the sprites in a room chasing the player each time the
-        player moves.<br />
-        <br /> The game is a short experience, but I hope it leaves a lasting impression
-        on the player. Its also now available to play on itch.io!
+<Layout title="Waiting Room">
+  <a href="https://jentyler.dev"><span class="back-arrow"></span></a>
+  <div class="container" transition:name="walk">
+    <Image class="project-tile" src={waiting} alt="project image" />
+    <div class="text">
+      <h1>Waiting Room</h1>
+      <br />
+      Waiting Room is a short psychological horror game about guilt and acceptance.
+      The game is made using Bitsy, a very limited game engine that requires creative
+      solutions to utlize its full potential to create the game you want. I wanted
+      to emit the discomfort and anxiety of guilt through the engine's styling, color
+      palettes, and sound design.
+      <br />
+      <br />I used Bitsy hacks by Sean Leblanc in order to add the sounds used
+      in the game, as well as to match the HTML background to the game's theme.
+      Lastly, I modified an existing hack called "follower" that uses JavaScript
+      to have a sprite(s) follow the player around the game. Using a BFS
+      algorithm, along with some other changes to the code, I was able to
+      simulate the sprites in a room chasing the player each time the player
+      moves.<br />
+      <br /> The game is a short experience, but I hope it leaves a lasting impression
+      on the player. Its also now available to play on itch.io!
 
-        <a href="https://chickenjenders.itch.io/waiting-room" target="_blank"
-          ><button type="button" class="game-button">Play Now!</button></a
-        >
-      </div>
+      <a href="https://chickenjenders.itch.io/waiting-room" target="_blank"
+        ><button type="button" class="game-button">Play Now!</button></a
+      >
     </div>
-  </body>
-</html>
+  </div>
+</Layout>

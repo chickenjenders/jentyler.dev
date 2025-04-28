@@ -1,44 +1,36 @@
 ---
+import Layout from "../layouts/Layout.astro";
 import { ViewTransitions } from "astro:transitions";
 import { Image } from "astro:assets";
 import dragon from "../assets/unknowncaller.png";
 import "../projects.css";
-// Supports weights 100-700
 import "@fontsource-variable/space-grotesk";
 ---
 
-<html lang="en">
-  <head>
-    <title>Unknown Caller</title>
-    <ViewTransitions />
-  </head>
-  <body>
-    <a href="https://jentyler.dev"><span class="back-arrow"></span></a>
-    <div class="container" transition:name="walk">
-      <Image class="project-tile" src={dragon} alt="project image" />
-      <div class="text">
-        <h1>Unknown Caller</h1>
-        <p>
-          Unknown Caller is a short web experience where the user can dial any 7
-          numbers to "call" someone. After dialing, someone will pick up, but
-          they will probably not have a very happy response. You're prank
-          calling them, afterall. <br />
-          <br /> This project was made as a typical website using HTML/CSS and JavaScript.
-          I used OpenAI's API for chat completions to generate the responses from
-          the callers over the phone. The chat is displayed on the screen, while
-          another call to OpenAI's API for audio speech reads the generated response
-          aloud as if someone actually picked up your call. The responses are made
-          to answer a call from someone on the other end prank calling them with
-          just heavy breathing.<br /><br />
-          I find that while the call takes awhile to load, the responses are hilariously
-          aggravated about your prank call.
-        </p>
-        <a
-          href="https://chickenjenders.github.io/unknowncaller/"
-          target="_blank"
-          ><button type="button" class="game-button">Play Now!</button></a
-        >
-      </div>
+<Layout title="Unknown Caller">
+  <a href="https://jentyler.dev"><span class="back-arrow"></span></a>
+  <div class="container" transition:name="walk">
+    <Image class="project-tile" src={dragon} alt="project image" />
+    <div class="text">
+      <h1>Unknown Caller</h1>
+      <p>
+        Unknown Caller is a short web experience where the user can dial any 7
+        numbers to "call" someone. After dialing, someone will pick up, but they
+        will probably not have a very happy response. You're prank calling them,
+        afterall. <br />
+        <br /> This project was made as a typical website using HTML/CSS and JavaScript.
+        I used OpenAI's API for chat completions to generate the responses from the
+        callers over the phone. The chat is displayed on the screen, while another
+        call to OpenAI's API for audio speech reads the generated response aloud
+        as if someone actually picked up your call. The responses are made to answer
+        a call from someone on the other end prank calling them with just heavy breathing.<br
+        /><br />
+        I find that while the call takes awhile to load, the responses are hilariously
+        aggravated about your prank call.
+      </p>
+      <a href="https://chickenjenders.github.io/unknowncaller/" target="_blank"
+        ><button type="button" class="game-button">Play Now!</button></a
+      >
     </div>
-  </body>
-</html>
+  </div>
+</Layout>

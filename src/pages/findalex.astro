@@ -1,59 +1,52 @@
 ---
+import Layout from "../layouts/Layout.astro";
 import { ViewTransitions } from "astro:transitions";
 import "../projects.css";
-// Supports weights 100-700
 import "@fontsource-variable/space-grotesk";
 ---
 
-<html lang="en">
-  <head>
-    <title>Alex is Missing</title>
-    <ViewTransitions />
-  </head>
-  <body>
-    <a href="https://jentyler.dev"><span class="back-arrow"></span></a>
-    <div class="container" transition:name="walk">
-      <iframe
-        class="project-tile"
-        width="560"
-        height="315"
-        src="https://www.youtube.com/embed/DUug-EdRWdE?si=8m_-9_PI0_Zyu69p"
-        title="YouTube video player"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerpolicy="strict-origin-when-cross-origin"
-        allowfullscreen></iframe>
-      <div class="text">
-        <h1>Alex is Missing</h1>
-        <p>
-          "Alex is Missing" is a collaborative web-based Alternate Reality Game
-          (ARG) developed by a team of 15 students from UCF's Digital Media
-          Master's Program. For my contribution, I originated the ARG story
-          concept and significantly shaped its foundational narrative. I played
-          a key role in developing the game mechanics by designing interactive
-          puzzles and implementing a complex automated email system using Google
-          Apps Script. Additionally, I built responsive websites using HTML,
-          CSS, JavaScript, React, and Tailwind CSS to enhance user engagement
-          across multiple platforms. My development and design work can be seen
-          on the Find Alex website, the main website for Draconis Squamae, the
-          sites for uploading evidence, the final hacking games, and the vault
-          portal ending page.<br /><br />
-          I am particularly proud of the email system I engineered in Google Apps
-          Script. This system leveraged Google Sheets as a real-time database to
-          store player information—such as email addresses, game stages, and interaction
-          counts—which allowed the game to trigger narrative-driven, automated emails
-          from a character named Olivia via Gmail. By combining these tools, the
-          system dynamically sent personalized emails at crucial moments in the story,
-          maintained continuity with in-game responses (including auto-replies based
-          on player input), and further immersed users in the ARG experience. My
-          work on this system not only streamlined communication within the game
-          but also served as a foundation for the overall storytelling and interactive
-          design of the project.
-        </p>
-        <a href="https://findalex.netlify.app/" target="_blank"
-          ><button type="button" class="game-button">Play Now!</button>
-        </a>
-      </div>
+<Layout title="Alex is Missing">
+  <a href="https://jentyler.dev"><span class="back-arrow"></span></a>
+  <div class="container" transition:name="walk">
+    <iframe
+      class="project-tile"
+      width="560"
+      height="315"
+      src="https://www.youtube.com/embed/DUug-EdRWdE?si=8m_-9_PI0_Zyu69p"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen></iframe>
+    <div class="text">
+      <h1>Alex is Missing</h1>
+      <p>
+        "Alex is Missing" is a collaborative web-based Alternate Reality Game
+        (ARG) developed by a team of 15 students from UCF's Digital Media
+        Master's Program. For my contribution, I originated the ARG story
+        concept and significantly shaped its foundational narrative. I played a
+        key role in developing the game mechanics by designing interactive
+        puzzles and implementing a complex automated email system using Google
+        Apps Script. Additionally, I built responsive websites using HTML, CSS,
+        JavaScript, React, and Tailwind CSS to enhance user engagement across
+        multiple platforms. My development and design work can be seen on the
+        Find Alex website, the main website for Draconis Squamae, the sites for
+        uploading evidence, the final hacking games, and the vault portal ending
+        page.<br /><br />
+        I am particularly proud of the email system I engineered in Google Apps Script.
+        This system leveraged Google Sheets as a real-time database to store player
+        information—such as email addresses, game stages, and interaction counts—which
+        allowed the game to trigger narrative-driven, automated emails from a character
+        named Olivia via Gmail. By combining these tools, the system dynamically
+        sent personalized emails at crucial moments in the story, maintained continuity
+        with in-game responses (including auto-replies based on player input), and
+        further immersed users in the ARG experience. My work on this system not
+        only streamlined communication within the game but also served as a foundation
+        for the overall storytelling and interactive design of the project.
+      </p>
+      <a href="https://findalex.netlify.app/" target="_blank"
+        ><button type="button" class="game-button">Play Now!</button>
+      </a>
     </div>
-  </body>
-</html>
+  </div>
+</Layout>

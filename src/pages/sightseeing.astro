@@ -1,35 +1,29 @@
 ---
+import Layout from "../layouts/Layout.astro";
 import { ViewTransitions } from "astro:transitions";
 import { Image } from "astro:assets";
 import dragon from "../assets/sightseeing.png";
 import "../projects.css";
-// Supports weights 100-700
 import "@fontsource-variable/space-grotesk";
 ---
 
-<html lang="en">
-  <head>
-    <title>Sightseeing</title>
-    <ViewTransitions />
-  </head>
-  <body>
-    <a href="https://jentyler.dev"><span class="back-arrow"></span></a>
-    <div class="container" transition:name="walk">
-      <Image class="project-tile" src={dragon} alt="project image" />
-      <div class="text">
-        <h1>Sightseeing</h1>
-        <p>
-          Have you ever felt like going on a hike at night? What about eating
-          random things in the forest when you're hungry? Well, in this 2D pixel
-          horror game, you can do both!<br /><br />
-          Sightseeing is a silly but spooky game I made using the game engine Godot.
-          I drew the assets in Procreate or used free ones from Canva, https://karsiori.itch.iofree-pixel-art-flower-pack,
-          https://lyaseek.itch.io/miniffanimals.
-        </p>
-        <a href="https://chickenjenders.itch.io/sightseeing" target="_blank"
-          ><button type="button" class="game-button">Play Now!</button></a
-        >
-      </div>
+<Layout title="Sightseeing">
+  <a href="https://jentyler.dev"><span class="back-arrow"></span></a>
+  <div class="container" transition:name="walk">
+    <Image class="project-tile" src={dragon} alt="project image" />
+    <div class="text">
+      <h1>Sightseeing</h1>
+      <p>
+        Have you ever felt like going on a hike at night? What about eating
+        random things in the forest when you're hungry? Well, in this 2D pixel
+        horror game, you can do both!<br /><br />
+        Sightseeing is a silly but spooky game I made using the game engine Godot.
+        I drew the assets in Procreate or used free ones from Canva, https://karsiori.itch.iofree-pixel-art-flower-pack,
+        https://lyaseek.itch.io/miniffanimals.
+      </p>
+      <a href="https://chickenjenders.itch.io/sightseeing" target="_blank"
+        ><button type="button" class="game-button">Play Now!</button></a
+      >
     </div>
-  </body>
-</html>
+  </div>
+</Layout>
