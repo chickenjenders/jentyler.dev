@@ -372,3 +372,223 @@ html.vhs-on img {
   position: relative;
   filter: hue-rotate(2deg);
 }
+
+/* --------------------------------------------------------------------------
+   Background animation moved from src/pages/index.astro
+   Decorative purple blurred blobs that sit behind the profile card.
+   Kept in a separate block so it's easy to find and tweak.
+   -------------------------------------------------------------------------- */
+
+/* Make the home profile card dominant and nearly fullscreen */
+.home-hero {
+  position: relative; /* needed for stacking context */
+  overflow: visible; /* allow fixed background to show outside hero */
+  /* subtract header/spacing so the hero fits without scrolling */
+  min-height: calc(100vh - 140px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 0;
+  background: linear-gradient(
+    180deg,
+    rgba(18, 18, 22, 0.9),
+    rgba(20, 18, 26, 0.95)
+  );
+}
+
+/* Ensure the container that doubles as the hero fills the width and centers the profile */
+.container.home-hero {
+  width: 100%;
+  max-width: 100%;
+  margin: 0; /* remove the 20px auto from .container to keep vertical centering stable */
+  padding: 0 1rem; /* keep a little horizontal gutter */
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  /* avoid extra vertical margins that cause scroll */
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.home-hero .profile {
+  position: relative;
+  z-index: 2; /* sits above background animation */
+  width: min(980px, 94%);
+  background: linear-gradient(
+    135deg,
+    rgba(28, 24, 36, 0.9),
+    rgba(22, 20, 30, 0.85)
+  );
+  padding: 2rem;
+  border-radius: 14px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+/* Animated decorative blobs behind the profile card */
+/* Make the decorative background cover the full viewport */
+.bg-anim {
+  position: fixed; /* cover the whole viewport */
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.bg-anim .blob {
+  position: absolute;
+  filter: blur(40px) saturate(120%);
+  opacity: 0.9;
+  mix-blend-mode: screen;
+  will-change: transform, opacity;
+  transform-origin: center;
+  transform-style: preserve-3d;
+  animation-play-state: running;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: both;
+}
+/* Individual blobs */
+.bg-anim .b1 {
+  width: 48vmin;
+  height: 48vmin;
+  left: -6vmin;
+  top: -4vmin;
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(138, 79, 255, 0.9),
+    rgba(124, 77, 255, 0.5) 50%,
+    rgba(124, 77, 255, 0.15) 75%
+  );
+  animation: float-1 9s ease-in-out infinite alternate;
+}
+.bg-anim .b2 {
+  width: 40vmin;
+  height: 40vmin;
+  right: -6vmin;
+  top: 6vmin;
+  background: radial-gradient(
+    circle at 20% 20%,
+    rgba(123, 88, 255, 0.85),
+    rgba(173, 125, 255, 0.35) 50%,
+    rgba(173, 125, 255, 0.08) 80%
+  );
+  animation: float-2 11s ease-in-out infinite alternate;
+}
+.bg-anim .b3 {
+  width: 30vmin;
+  height: 30vmin;
+  left: 18vmin;
+  bottom: -8vmin;
+  background: radial-gradient(
+    circle at 40% 40%,
+    rgba(255, 42, 109, 0.22),
+    rgba(124, 77, 255, 0.18)
+  );
+  animation: float-3 13s ease-in-out infinite alternate;
+}
+.bg-anim .b4 {
+  width: 22vmin;
+  height: 22vmin;
+  right: 26vmin;
+  bottom: -4vmin;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(124, 77, 255, 0.6),
+    rgba(64, 32, 128, 0.08)
+  );
+  animation: float-4 7s ease-in-out infinite alternate;
+}
+
+@keyframes float-1 {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg) scale(1);
+    opacity: 0.95;
+  }
+  50% {
+    transform: translateY(60px) translateX(12px) rotate(4deg) scale(1.08);
+    opacity: 0.85;
+  }
+  100% {
+    transform: translateY(0) translateX(0) rotate(0deg) scale(1);
+    opacity: 0.95;
+  }
+}
+@keyframes float-2 {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg) scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translateY(-46px) translateX(-30px) rotate(-6deg) scale(1.06);
+    opacity: 0.78;
+  }
+  100% {
+    transform: translateY(0) translateX(0) rotate(0deg) scale(1);
+    opacity: 0.9;
+  }
+}
+@keyframes float-3 {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg) scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(-72px) translateX(8px) rotate(-3deg) scale(1.12);
+    opacity: 0.55;
+  }
+  100% {
+    transform: translateY(0) translateX(0) rotate(0deg) scale(1);
+    opacity: 0.7;
+  }
+}
+@keyframes float-4 {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translateY(38px) translateX(22px) rotate(3deg) scale(1.08);
+  }
+  100% {
+    transform: translateY(0) translateX(0) rotate(0deg) scale(1);
+  }
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .bg-anim .blob {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Force animations when developer requests it by adding `force-motion` to <html>
+   This overrides prefers-reduced-motion so you can test the effect locally. */
+html.force-motion .bg-anim .b1 {
+  animation: float-1 9s ease-in-out infinite alternate !important;
+}
+html.force-motion .bg-anim .b2 {
+  animation: float-2 11s ease-in-out infinite alternate !important;
+}
+html.force-motion .bg-anim .b3 {
+  animation: float-3 13s ease-in-out infinite alternate !important;
+}
+html.force-motion .bg-anim .b4 {
+  animation: float-4 7s ease-in-out infinite alternate !important;
+}
+
+/* small responsive tweak for mobile hero profile */
+@media (max-width: 800px) {
+  .home-hero .profile {
+    flex-direction: column;
+    padding: 1.25rem;
+  }
+  .profile-image {
+    width: 160px;
+    height: 160px;
+  }
+  .profile > h1 {
+    font-size: 1.8rem;
+  }
+}

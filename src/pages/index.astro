@@ -14,6 +14,13 @@ import "@fontsource-variable/space-grotesk";
   <ViewTransitions />
 
   <div class="container home-hero">
+    <!-- Decorative animated background blobs (purely visual, behind the profile card) -->
+    <div class="bg-anim" aria-hidden="true">
+      <span class="blob b1"></span>
+      <span class="blob b2"></span>
+      <span class="blob b3"></span>
+      <span class="blob b4"></span>
+    </div>
     <div class="profile">
       <div class="profile-media">
         <Image class="profile-image" src={profile} alt="me" />
@@ -47,97 +54,5 @@ import "@fontsource-variable/space-grotesk";
       </div>
     </div>
   </div>
-  <style>
-    /* Make the home profile card dominant and nearly fullscreen */
-    .home-hero {
-      min-height: calc(100vh - 140px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem 0;
-      background: linear-gradient(
-        180deg,
-        rgba(18, 18, 22, 0.9),
-        rgba(20, 18, 26, 0.95)
-      );
-    }
-    .home-hero .profile {
-      width: min(980px, 94%);
-      background: linear-gradient(
-        135deg,
-        rgba(28, 24, 36, 0.9),
-        rgba(22, 20, 30, 0.85)
-      );
-      padding: 2rem;
-      border-radius: 14px;
-      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
-      display: flex;
-      gap: 1.5rem;
-      align-items: center;
-    }
-    .profile-image {
-      height: 220px;
-      width: 220px;
-      border-radius: 12px;
-      object-fit: cover;
-      flex-shrink: 0;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
-      border: 1px solid rgba(255, 255, 255, 0.03);
-    }
-    .profile > h1 {
-      font-size: 2.25rem;
-      margin: 0 0 0.25rem 0;
-    }
-    .profile .bio {
-      margin: 0 0 1rem 0;
-      font-size: 1.05rem;
-      opacity: 0.95;
-    }
-    .profile .meta {
-      display: flex;
-      flex-direction: column;
-    }
-    .icons {
-      margin-top: 0.5rem;
-      display: flex;
-      gap: 12px;
-    }
-    .icons a {
-      color: inherit;
-    }
-    .cta-row {
-      margin-top: 1rem;
-      display: flex;
-      gap: 0.75rem;
-    }
-    .btn {
-      padding: 0.5rem 0.9rem;
-      border-radius: 8px;
-      background: rgba(255, 255, 255, 0.03);
-      color: #e6e8ff;
-      text-decoration: none;
-      border: 1px solid rgba(255, 255, 255, 0.03);
-      transition:
-        transform 0.12s ease,
-        background 0.12s ease;
-    }
-    .btn:hover {
-      transform: translateY(-3px);
-      background: rgba(255, 42, 109, 0.08);
-    }
-
-    @media (max-width: 800px) {
-      .home-hero .profile {
-        flex-direction: column;
-        padding: 1.25rem;
-      }
-      .profile-image {
-        width: 160px;
-        height: 160px;
-      }
-      .profile > h1 {
-        font-size: 1.8rem;
-      }
-    }
-  </style>
+  <!-- background and hero styles moved to src/styles.css -->
 </Layout>
