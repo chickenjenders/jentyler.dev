@@ -436,8 +436,17 @@ html.vhs-on img {
   pointer-events: none;
   overflow: hidden;
 }
+/* Each blob lives inside a positioned wrapper we can move via JS.
+   The inner .blob retains the floating animation so the motion composes. */
+.bg-anim .blob-wrap {
+  position: absolute;
+  will-change: transform;
+  pointer-events: none;
+  transform: translate3d(0, 0, 0);
+}
 .bg-anim .blob {
   position: absolute;
+  inset: 0;
   filter: blur(40px) saturate(120%);
   opacity: 0.9;
   mix-blend-mode: screen;
@@ -448,13 +457,35 @@ html.vhs-on img {
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
   animation-fill-mode: both;
+  border-radius: 50%;
 }
-/* Individual blobs */
-.bg-anim .b1 {
+/* Individual wrapper positions/sizes (moved from the .bX rules) */
+.bg-anim .blob-wrap.w1 {
   width: 48vmin;
   height: 48vmin;
   left: -6vmin;
   top: -4vmin;
+}
+.bg-anim .blob-wrap.w2 {
+  width: 40vmin;
+  height: 40vmin;
+  right: -6vmin;
+  top: 6vmin;
+}
+.bg-anim .blob-wrap.w3 {
+  width: 30vmin;
+  height: 30vmin;
+  left: 18vmin;
+  bottom: -8vmin;
+}
+.bg-anim .blob-wrap.w4 {
+  width: 22vmin;
+  height: 22vmin;
+  right: 26vmin;
+  bottom: -4vmin;
+}
+/* Individual blobs (keep backgrounds + floating animations) */
+.bg-anim .b1 {
   background: radial-gradient(
     circle at 30% 30%,
     rgba(138, 79, 255, 0.9),
@@ -464,10 +495,6 @@ html.vhs-on img {
   animation: float-1 9s ease-in-out infinite alternate;
 }
 .bg-anim .b2 {
-  width: 40vmin;
-  height: 40vmin;
-  right: -6vmin;
-  top: 6vmin;
   background: radial-gradient(
     circle at 20% 20%,
     rgba(123, 88, 255, 0.85),
@@ -477,10 +504,6 @@ html.vhs-on img {
   animation: float-2 11s ease-in-out infinite alternate;
 }
 .bg-anim .b3 {
-  width: 30vmin;
-  height: 30vmin;
-  left: 18vmin;
-  bottom: -8vmin;
   background: radial-gradient(
     circle at 40% 40%,
     rgba(255, 42, 109, 0.22),
@@ -489,10 +512,6 @@ html.vhs-on img {
   animation: float-3 13s ease-in-out infinite alternate;
 }
 .bg-anim .b4 {
-  width: 22vmin;
-  height: 22vmin;
-  right: 26vmin;
-  bottom: -4vmin;
   background: radial-gradient(
     circle at 50% 50%,
     rgba(124, 77, 255, 0.6),

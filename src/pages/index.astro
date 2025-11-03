@@ -14,12 +14,14 @@ import "@fontsource-variable/space-grotesk";
   <ViewTransitions />
 
   <div class="container home-hero">
-    <!-- Decorative animated background blobs (purely visual, behind the profile card) -->
+    <!-- Decorative animated background blobs (purely visual, behind the profile card)
+         Wrapped so we can move each wrapper via JS (mouse/touch) while the inner
+         .blob element keeps its existing animation. -->
     <div class="bg-anim" aria-hidden="true">
-      <span class="blob b1"></span>
-      <span class="blob b2"></span>
-      <span class="blob b3"></span>
-      <span class="blob b4"></span>
+      <div class="blob-wrap w1"><span class="blob b1"></span></div>
+      <div class="blob-wrap w2"><span class="blob b2"></span></div>
+      <div class="blob-wrap w3"><span class="blob b3"></span></div>
+      <div class="blob-wrap w4"><span class="blob b4"></span></div>
     </div>
     <div class="profile">
       <div class="profile-media">
@@ -52,4 +54,74 @@ import "@fontsource-variable/space-grotesk";
     </div>
   </div>
   <!-- background and hero styles moved to src/styles.css -->
+
+  <!-- Mouse-follow script for the blobs (lava-lamp style) -->
+  <script type="module">
+    // Respect prefers-reduced-motion
+    if (
+      !window.matchMedia ||
+      !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
+      const wrappers = Array.from(
+        document.querySelectorAll(".bg-anim .blob-wrap")
+      );
+      if (wrappers.length) {
+        let target = { x: 0, y: 0 };
+        let current = { x: 0, y: 0 };
+        let rafId = null;
+
+        function onMove(e) {
+          const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+          const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+          const cx = window.innerWidth / 2;
+          const cy = window.innerHeight / 2;
+          // Normalized -1..1
+          target.x = (clientX - cx) / cx;
+          target.y = (clientY - cy) / cy;
+          start();
+        }
+
+        function lerp(a, b, t) {
+          return a + (b - a) * t;
+        }
+
+        function update() {
+          current.x = lerp(current.x, target.x, 0.08);
+          current.y = lerp(current.y, target.y, 0.08);
+          wrappers.forEach((w, i) => {
+            // Different strength per blob (px)
+            const strengths = [48, 36, 24, 16];
+            const s = strengths[i] || 20;
+            const tx = Math.round(current.x * s);
+            const ty = Math.round(current.y * s);
+            w.style.transform = `translate3d(${tx}px, ${ty}px, 0)`;
+          });
+          rafId = requestAnimationFrame(update);
+        }
+
+        function start() {
+          if (!rafId) rafId = requestAnimationFrame(update);
+        }
+
+        function stop() {
+          if (rafId) {
+            cancelAnimationFrame(rafId);
+            rafId = null;
+          }
+        }
+
+        window.addEventListener("mousemove", onMove, { passive: true });
+        window.addEventListener("touchmove", onMove, { passive: true });
+        window.addEventListener(
+          "mouseleave",
+          () => {
+            target.x = 0;
+            target.y = 0;
+            start();
+          },
+          { passive: true }
+        );
+      }
+    }
+  </script>
 </Layout>
