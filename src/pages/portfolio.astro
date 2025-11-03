@@ -1,0 +1,168 @@
+---
+import Layout from "../layouts/Layout.astro";
+import "../styles.css";
+import { Image } from "astro:assets";
+import sightseeing from "../assets/sightseeing.png";
+import findalex from "../assets/findalex.png";
+import shattered from "../assets/shattered.png";
+import dragon from "../assets/dragon.png";
+import walking from "../assets/walking.png";
+import masks from "../assets/PASSWORD.png";
+import roamer from "../assets/roamer.png";
+import escape from "../assets/escape.png";
+import waiting from "../assets/waiting.png";
+import unknowncaller from "../assets/unknowncaller.png";
+
+const works = [
+  {
+    title: "Sightseeing",
+    href: "/sightseeing",
+    image: sightseeing,
+    date: "2024",
+    media: "Web game",
+    size: "N/A",
+    info: "A game about taking a hike at night and foraging for a snack. Two very great ideas that will result in absolutely nothing going wrong.",
+  },
+  {
+    title: "Alex is Missing",
+    href: "/findalex",
+    image: findalex,
+    date: "2023",
+    media: "ARG / Web",
+    size: "N/A",
+    info: "Class project ARG revolving around Alex Valegro who was gone missing from UCF campus. Can you solve the puzzles she left behind and figure out what happened to her?",
+  },
+  {
+    title: "Shattered",
+    href: "/shattered",
+    image: shattered,
+    date: "2022",
+    media: "Interactive web",
+    size: "N/A",
+    info: "Consumerism can be ugly... it can also make you think you LOOK absolutely atrocious until you get all the latest things.",
+  },
+  {
+    title: "Unknown Caller",
+    href: "/unknowncaller",
+    image: unknowncaller,
+    date: "2023",
+    media: "Web game",
+    size: "N/A",
+    info: "You really should stop prank calling people, they are getting really tired of it.",
+  },
+  {
+    title: "Sweet Escape",
+    href: "/sweetescape",
+    image: escape,
+    date: "2022",
+    media: "Browser game",
+    size: "N/A",
+    info: "You need to sell all your cookies to win the big prize, even if it means breaking into someone's house, but are you able to get back out?",
+  },
+  {
+    title: "Why Walk?",
+    href: "/walking",
+    image: walking,
+    date: "2022",
+    media: "Web game",
+    size: "N/A",
+    info: "Why isn't there an educational game about walkable cities? Oh wait, now there is!",
+  },
+  {
+    title: "Roamer",
+    href: "/roamer",
+    image: roamer,
+    date: "2021",
+    media: "Web app",
+    size: "N/A",
+    info: "Discover your dream vacation plan generated just for you!",
+  },
+  {
+    title: "Waiting Room",
+    href: "/waitingroom",
+    image: waiting,
+    date: "2020",
+    media: "Bitsy game",
+    size: "N/A",
+    info: "A short Bitsy horror game about... what did you do?",
+  },
+  {
+    title: "Guilty Masks",
+    href: "/masks",
+    image: masks,
+    date: "2021",
+    media: "Twine / CYOA",
+    size: "N/A",
+    info: "Unmask your friends' secrets in this CYOA Twine game!",
+  },
+  {
+    title: "Dragon Battle RPG",
+    href: "/dragon",
+    image: dragon,
+    date: "2019",
+    media: "RPG / Web",
+    size: "N/A",
+    info: "Can you defeat the dragon in this RPG web game?",
+  },
+];
+---
+
+<Layout title="Portfolio — Jen Tyler">
+  <section class="portfolio-page">
+    <h1>Portfolio</h1>
+    <p>Selected works. Click a project to view its full page with details.</p>
+
+    <div class="portfolio-grid">
+      {
+        works.map((w) => (
+          <a class="project-card" href={w.href}>
+            <Image src={w.image} alt={w.title} class="project-thumb" />
+            <div class="meta">
+              <h3>{w.title}</h3>
+              <p class="small">
+                {w.date} — {w.media}
+              </p>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+
+    <h2>How each project page is structured</h2>
+    <p>
+      Each project page includes: an image or embedded media, completion date,
+      size/runtime (if relevant), platform/materials, and a short description.
+    </p>
+  </section>
+
+  <style>
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .project-card {
+      display: block;
+      text-decoration: none;
+      background: #1e1a2b;
+      padding: 0.5rem;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.03);
+      color: inherit;
+    }
+    .project-thumb {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+    .meta {
+      padding: 0.5rem 0;
+    }
+    .small {
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+  </style>
+</Layout>

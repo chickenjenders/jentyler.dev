@@ -27,7 +27,20 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
-    <slot />
+    <header class="site-header">
+      <div class="nav-wrap">
+        <a class="logo" href="/">Jen Tyler</a>
+        <nav class="main-nav">
+          <a href="/bio">Bio</a>
+          <a href="/cv">CV</a>
+          <a href="/portfolio">Portfolio</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="site-main">
+      <slot />
+    </main>
   </body>
 </html>
 
@@ -55,5 +68,53 @@ const { title } = Astro.props;
       Bitstream Vera Sans Mono,
       Courier New,
       monospace;
+  }
+  /* Header / navigation for site-wide links */
+  .site-header {
+    padding: 1rem 0.75rem;
+    background: linear-gradient(
+      90deg,
+      rgba(36, 37, 41, 0.95),
+      rgba(28, 28, 32, 0.95)
+    );
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  }
+  /* Ensure header spans full width even when body is a flex container */
+  .site-header {
+    width: 100%;
+    align-self: stretch;
+    left: 0;
+    right: 0;
+  }
+  .nav-wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .logo {
+    font-weight: 700;
+    color: #e0e0ff;
+    text-decoration: none;
+    font-size: 1.05rem;
+  }
+  .main-nav a {
+    color: #cfd6ff;
+    text-decoration: none;
+    margin-left: 1rem;
+    transition:
+      color 0.2s ease,
+      transform 0.15s ease;
+  }
+  .main-nav a:hover {
+    color: #ff2a6d;
+    transform: translateY(-1px);
+  }
+  .site-main {
+    max-width: 1100px;
+    margin: 1.25rem auto;
+    padding: 0 0.75rem;
   }
 </style>

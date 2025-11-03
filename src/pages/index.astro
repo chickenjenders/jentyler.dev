@@ -3,196 +3,141 @@ import Layout from "../layouts/Layout.astro";
 import "../styles.css";
 import { Image } from "astro:assets";
 import profile from "../assets/jenprofile.jpeg";
-import dragon from "../assets/dragon.png";
-import walking from "../assets/walking.png";
-import masks from "../assets/PASSWORD.png";
-import roamer from "../assets/roamer.png";
-import escape from "../assets/escape.png";
-import waiting from "../assets/waiting.png";
-import findalex from "../assets/findalex.png";
-import shattered from "../assets/shattered.png";
-import sightseeing from "../assets/sightseeing.png";
-import unknowncaller from "../assets/unknowncaller.png";
+// project images moved to Portfolio page
 import { ViewTransitions } from "astro:transitions";
 import "@fontsource-variable/space-grotesk";
 
-const projects = [
-  {
-    title: "Sightseeing",
-    image: sightseeing,
-    href: "sightseeing",
-    info: "A game about taking a hike at night and foraging for a snack. Two very great ideas that will result in absolutely nothing going wrong.",
-  },
-  {
-    title: "Alex is Missing",
-    image: findalex,
-    href: "findalex",
-    info: "Class project ARG revolving around Alex Valegro who was gone missing from UCF campus. Can you solve the puzzles she left behind and figure out what happened to her?",
-  },
-  {
-    title: "Shattered",
-    image: shattered,
-    href: "shattered",
-    info: "Consumerism can be ugly... it can also make you think you LOOK absolutely atrocious until you get all the latest things.",
-  },
-  {
-    title: "Uknown Caller",
-    image: unknowncaller,
-    href: "unknowncaller",
-    info: "You really should stop prank calling people, they are getting really tired of it.",
-  },
-  {
-    title: "Sweet Escape",
-    image: escape,
-    href: "sweetescape",
-    info: "You need to sell all your cookies to win the big prize, even if it means breaking into someone's house, but are you able to get back out?",
-  },
-  {
-    title: "Why Walk?",
-    image: walking,
-    href: "walking",
-    info: "Why isn't there an educational game about walkable cities? Oh wait, now there is!",
-  },
-  {
-    title: "Roamer",
-    image: roamer,
-    href: "roamer",
-    info: "Discover your dream vacation plan generated just for you!",
-  },
-  {
-    title: "Waiting Room",
-    image: waiting,
-    href: "waitingroom",
-    info: "A short Bitsy horror game about... what did you do?",
-  },
-  {
-    title: "Guilty Masks",
-    image: masks,
-    href: "masks",
-    info: "Unmask your friends' secrets in this CYOA Twine game!",
-  },
-  {
-    title: "Dragon Battle RPG",
-    image: dragon,
-    href: "dragon",
-    info: "Can you defeat the dragon in this RPG web game?",
-  },
-];
+// projects list moved to `src/pages/portfolio.astro`
 ---
 
 <Layout title="Portfolio Page">
   <ViewTransitions />
-  <style>
-    /* Add VHS video overlay styles */
-    .vhs-video-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 1000;
-      pointer-events: none;
-      opacity: 3; /* Adjust opacity as needed */
-      object-fit: cover;
-      mix-blend-mode: overlay; /* Try different blend modes: multiply, screen, overlay */
-    }
-    .vhs-hidden {
-      display: none;
-    }
-  </style>
-  <video
-    id="vhs-effect"
-    class="vhs-video-overlay"
-    autoplay
-    loop
-    muted
-    playsinline
-  >
-    <source src="/vhs.mp4" type="video/mp4" />
-  </video>
-  <div class="container vhs-area">
+
+  <div class="container home-hero">
     <div class="profile">
-      <div>
+      <div class="profile-media">
         <Image class="profile-image" src={profile} alt="me" />
       </div>
-      <h1>Hi, I'm Jen!</h1>
-      <p class="bio">
-        I'm an aspiring web and game developer currently studying Digital Media
-        at UCF. I specialize in spooky projects and unique web experiences!
-      </p>
-      <div class="icons">
-        <a
-          href="https://docs.google.com/document/d/1y6KogTM-77zl3HpO0swl2cJmguuPq9JP/edit?usp=sharing&ouid=112253065582950476881&rtpof=true&sd=true"
-          target="_blank"><span class="mdi--resume icon-image"></span></a
-        >
-        <a href="https://linkedin.com/in/jen-tyler" target="_blank"
-          ><span class="mdi--linkedin icon-image"></span></a
-        >
-        <a href="https://github.com/chickenjenders" target="_blank"
-          ><span class="mdi--github icon-image"></span></a
-        >
-        <a href="mailto: jgtyler99@gmail.com" target="_blank"
-          ><span class="mdi--email icon-image"></span></a
-        >
+      <div class="meta">
+        <h1>Hi, I'm Jen!</h1>
+        <p class="bio">
+          I'm an aspiring web and game developer currently studying Digital
+          Media at UCF. I specialize in spooky projects and unique web
+          experiences!
+        </p>
+        <div class="icons">
+          <a
+            href="https://docs.google.com/document/d/1y6KogTM-77zl3HpO0swl2cJmguuPq9JP/edit?usp=sharing&ouid=112253065582950476881&rtpof=true&sd=true"
+            target="_blank"><span class="mdi--resume icon-image"></span></a
+          >
+          <a href="https://linkedin.com/in/jen-tyler" target="_blank"
+            ><span class="mdi--linkedin icon-image"></span></a
+          >
+          <a href="https://github.com/chickenjenders" target="_blank"
+            ><span class="mdi--github icon-image"></span></a
+          >
+          <a href="mailto: jgtyler99@gmail.com" target="_blank"
+            ><span class="mdi--email icon-image"></span></a
+          >
+        </div>
+        <div class="cta-row">
+          <a class="btn" href="/portfolio">See Portfolio</a>
+          <a class="btn" href="/bio">About / Bio</a>
+        </div>
       </div>
-      <button id="vhs-toggle" aria-pressed="true"> Toggle VHS Filter </button>
-    </div>
-    <div class="projects">
-      <div class="center">
-        <h2 class="center-text glitch is-glitching" data-text="-Projects-">
-          -Projects-
-        </h2>
-      </div>
-      {
-        projects.map((project, i) => {
-          return (
-            <a
-              href={"./" + project.href}
-              transition:name={project.href}
-              class="project-container"
-            >
-              <Image
-                class="project-image"
-                src={project.image}
-                alt="project image"
-              />
-              <div class="project-info">
-                <h2>{project.title}</h2>
-                <p class="description">{project.info}</p>
-              </div>
-            </a>
-          );
-        })
-      }
     </div>
   </div>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const btn = document.getElementById("vhs-toggle");
-      const vhsVideo = document.getElementById("vhs-effect");
-      const root = document.documentElement;
-      // Check for saved preference
-      const saved = localStorage.getItem("vhs");
-      if (saved === "off") {
-        vhsVideo.classList.add("vhs-hidden");
-        btn.setAttribute("aria-pressed", "false");
-      } else {
-        vhsVideo.classList.remove("vhs-hidden");
-        btn.setAttribute("aria-pressed", "true");
+  <style>
+    /* Make the home profile card dominant and nearly fullscreen */
+    .home-hero {
+      min-height: calc(100vh - 140px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 0;
+      background: linear-gradient(
+        180deg,
+        rgba(18, 18, 22, 0.9),
+        rgba(20, 18, 26, 0.95)
+      );
+    }
+    .home-hero .profile {
+      width: min(980px, 94%);
+      background: linear-gradient(
+        135deg,
+        rgba(28, 24, 36, 0.9),
+        rgba(22, 20, 30, 0.85)
+      );
+      padding: 2rem;
+      border-radius: 14px;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+    .profile-image {
+      height: 220px;
+      width: 220px;
+      border-radius: 12px;
+      object-fit: cover;
+      flex-shrink: 0;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.03);
+    }
+    .profile > h1 {
+      font-size: 2.25rem;
+      margin: 0 0 0.25rem 0;
+    }
+    .profile .bio {
+      margin: 0 0 1rem 0;
+      font-size: 1.05rem;
+      opacity: 0.95;
+    }
+    .profile .meta {
+      display: flex;
+      flex-direction: column;
+    }
+    .icons {
+      margin-top: 0.5rem;
+      display: flex;
+      gap: 12px;
+    }
+    .icons a {
+      color: inherit;
+    }
+    .cta-row {
+      margin-top: 1rem;
+      display: flex;
+      gap: 0.75rem;
+    }
+    .btn {
+      padding: 0.5rem 0.9rem;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.03);
+      color: #e6e8ff;
+      text-decoration: none;
+      border: 1px solid rgba(255, 255, 255, 0.03);
+      transition:
+        transform 0.12s ease,
+        background 0.12s ease;
+    }
+    .btn:hover {
+      transform: translateY(-3px);
+      background: rgba(255, 42, 109, 0.08);
+    }
+
+    @media (max-width: 800px) {
+      .home-hero .profile {
+        flex-direction: column;
+        padding: 1.25rem;
       }
-      // Add click event listener
-      btn.addEventListener("click", () => {
-        const isHidden = vhsVideo.classList.contains("vhs-hidden");
-        if (isHidden) {
-          vhsVideo.classList.remove("vhs-hidden");
-          btn.setAttribute("aria-pressed", "true");
-          localStorage.setItem("vhs", "on");
-        } else {
-          vhsVideo.classList.add("vhs-hidden");
-          btn.setAttribute("aria-pressed", "false");
-          localStorage.setItem("vhs", "off");
-        }
-      });
-    });
-  </script>
+      .profile-image {
+        width: 160px;
+        height: 160px;
+      }
+      .profile > h1 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
 </Layout>
