@@ -1,0 +1,52 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { ViewTransitions } from "astro:transitions";
+import "../projects.css";
+import { Image } from "astro:assets";
+import infernalaffairs from "../assets/infernalaffairs.png";
+import "@fontsource-variable/space-grotesk";
+---
+
+<Layout title="Infernal Affairs">
+  <a href="https://jentyler.dev"><span class="back-arrow"></span></a>
+  <div class="container" transition:name="walk">
+    <Image class="project-tile" src={infernalaffairs} alt="project image" />
+    <div class="text">
+      <h1>Infernal Affairs</h1>
+      <p>
+        "Infernal Affairs" is an ongoing solo-developed interactive game project
+        that merges dark humor, horror, and bureaucratic satire into a surreal
+        workplace simulator set in the afterlife. The player assumes the role of
+        a low-level demon office worker tasked with managing ridiculous
+        policies, scheduling misery-inducing tasks, and maintaining the illusion
+        of productivity in a corporate interpretation of Hell. The project
+        blends stylized 2D art with a gothic interface and employs intentionally
+        banal and frustrating mechanics to make fun of work culture and the
+        absurdity of bureaucratic systems.<br /><br />
+
+        I developed the project using the Godot game engine, designing all UI
+        layouts, scene logic, and interaction systems in GDScript. The game’s
+        core mechanic involves assigning tasks to demon employees—each with
+        unique weaknesses, neuroses, and “misery thresholds”—to maximize
+        organizational efficiency while deepening their existential torment.
+        Players navigate this system through a desktop-style interface that
+        mimics office management software, complete with fake applications,
+        reports, and internal communications from Hell’s administration.<br
+        /><br />
+
+        Earlier iterations of the game were prototyped in HTML, CSS, and
+        JavaScript, where I established the foundational drag-and-drop
+        scheduling system and the “Misery Index” calculation that tracks player
+        performance. These mechanics directly informed the Godot implementation,
+        serving as a proof of concept for how the game could merge management
+        simulation with dark narrative humor. "Infernal Affairs" continues to
+        evolve as a full scale game with additional narrative implemented to
+        serve its purpose of a satirical spin on an office job afterlife and to
+        make players relate and laugh.
+      </p>
+      <a href="https://chickenjenders.itch.io/" target="_blank"
+        ><button type="button" class="game-button">Play Demo!</button>
+      </a>
+    </div>
+  </div>
+</Layout>
