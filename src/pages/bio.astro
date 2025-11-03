@@ -1,32 +1,53 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import "../styles.css";
+import { Image } from "astro:assets";
+import profile from "../assets/jenprofile.jpeg";
 ---
 
 <Layout title="Bio — Jen Tyler">
   <section class="profile bio-page">
     <h1>About / Artist Statement</h1>
+    <div class="profile-media">
+      <Image
+        class="profile-image"
+        src={profile}
+        alt="Jennifer Tyler portrait"
+      />
+    </div>
     <p>
-      I'm Jen Tyler — a web and game maker interested in mood, narrative, and
-      experimental interaction. My work explores atmosphere, uncanny moments,
-      and small systems that invite play. I make browser-based games, playful
-      web experiments, and interactive stories using HTML, CSS, JavaScript, and
-      small engines.
+      Jennifer Tyler is a game designer and developer based in Orlando, Florida.
+      She crafts interactive horror experiences that use dread, tension, and
+      dark humor as emotional architecture, shaping not just what players see
+      but how they feel within digital space. Her work doesn’t simply depict
+      horror, it engineers it, treating unease as a design language that
+      reshapes player agency, atmosphere, and perception. Drawing inspiration
+      from mystery narratives and the darkly humorous, she creates projects that
+      merge narrative experimentation with thoughtful design.
     </p>
 
-    <h2>Artist Statement</h2>
     <p>
-      My practice is centered on creating compact experiences that evoke memory
-      and curiosity. I favor constrained interfaces that highlight texture,
-      pacing, and deliberate friction. Through games and web artifacts I aim to
-      make experiences that are intimate, strange, and a little bit affectionate
-      toward failure.
+      Currently pursuing a Master of Arts in Digital Media at the University of
+      Central Florida, Jennifer brings a psychological lens to game design
+      through her Bachelor of Arts in Psychology and Interdisciplinary Studies
+      from the University of North Florida. This background informs her focus on
+      player emotion, narrative tension, and the mechanics of discomfort,
+      exploring how interactive media can evoke something profoundly human
+      beneath the surface.
     </p>
 
     <p>
-      For a quick tour of my work see the <a href="/portfolio">Portfolio</a>, or
-      download my <a href="/cv">CV</a> for more details about exhibitions, education,
-      and work experience.
+      Jennifer’s independent games have garnered over 1,200 plays on Itch.io,
+      resonating with audiences drawn to experiences that balance psychological
+      storytelling with wit. Projects like Sightseeing, a click-and-point night
+      hike gone wrong, and Waiting Room, a minimalist exploration of guilt,
+      showcase her versatility across Godot, JavaScript, and other game engines.
+      Her upcoming title, Internal Affairs, turns corporate bureaucracy into
+      literal Hell—a satirical horror game inviting players to navigate the
+      afterlife through an office job. Whether working in web frameworks, game
+      engines, or experimental tools, Jennifer examines how horror aesthetics
+      can reshape interactive art into something darkly playful and deeply
+      human.
     </p>
   </section>
 </Layout>
