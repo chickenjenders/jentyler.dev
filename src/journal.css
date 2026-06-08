@@ -1,52 +1,150 @@
 /* Journal Page Styles */
 
 .journal-container {
-  max-width: 800px;
+  max-width: 880px;
   margin: 0 auto;
-  padding: 3rem 2rem;
+  padding: 3.5rem 2rem 4rem;
   min-height: 80vh;
 }
 
 .journal-header {
   text-align: center;
-  margin-bottom: 4rem;
-  border-bottom: 2px solid var(--color-border, #e5e7eb);
+  margin-bottom: 2rem;
   padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .journal-header h1 {
-  font-size: 3rem;
+  font-size: clamp(2.5rem, 6vw, 4rem);
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.04em;
   color: var(--color-text, #1f2937);
   margin-bottom: 0.5rem;
 }
 
 .journal-subtitle {
-  font-size: 1.1rem;
+  max-width: 56ch;
+  margin: 0 auto;
+  font-size: 1.05rem;
   color: var(--color-text-secondary, #6b7280);
-  font-weight: 400;
   font-style: italic;
-  line-height: 1.6;
+  line-height: 1.7;
+}
+
+.journal-controls {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding: 1.15rem;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 1.25rem;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.72),
+    rgba(250, 248, 244, 0.92)
+  );
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.05);
+  backdrop-filter: blur(8px);
+}
+
+.journal-search input {
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 999px;
+  padding: 0.95rem 1.1rem;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--color-text, #1f2937);
+  font: inherit;
+  outline: none;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.journal-search input:focus {
+  border-color: rgba(139, 92, 246, 0.5);
+  box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.14);
+}
+
+.tag-filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.tag-filter {
+  border: 1px solid rgba(139, 92, 246, 0.18);
+  border-radius: 999px;
+  background: rgba(139, 92, 246, 0.08);
+  color: var(--color-text-secondary, #6b7280);
+  padding: 0.55rem 0.9rem;
+  font: inherit;
+  font-size: 0.92rem;
+  cursor: pointer;
+  transition:
+    transform 0.15s ease,
+    background-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.tag-filter:hover {
+  transform: translateY(-1px);
+}
+
+.tag-filter.is-active {
+  background: rgba(139, 92, 246, 0.18);
+  color: var(--color-text, #1f2937);
+  border-color: rgba(139, 92, 246, 0.35);
 }
 
 .journal-entries {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 1.25rem;
 }
 
 .journal-entry {
-  padding: 2rem;
-  border-left: 4px solid var(--color-accent, #8b5cf6);
-  background-color: var(--color-bg-secondary, #fafafa);
-  border-radius: 0.5rem;
-  transition: all 0.3s ease;
+  padding: 0;
+  border-left: 4px solid rgba(139, 92, 246, 0.8);
+  border-radius: 1rem;
+  overflow: hidden;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 254, 252, 0.96),
+    rgba(248, 245, 240, 0.96)
+  );
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .journal-entry:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  transform: translateX(4px);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.1);
+}
+
+.journal-entry[open] {
+  box-shadow: 0 18px 36px rgba(15, 23, 42, 0.12);
+}
+
+.entry-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 1.5rem;
+  padding: 1.6rem 1.6rem 1.45rem;
+  cursor: pointer;
+  list-style: none;
+}
+
+.entry-summary::-webkit-details-marker {
+  display: none;
+}
+
+.entry-summary-main {
+  flex: 1;
+  min-width: 0;
 }
 
 .entry-header {
@@ -54,7 +152,6 @@
   justify-content: space-between;
   align-items: flex-start;
   gap: 1rem;
-  margin-bottom: 1rem;
   flex-wrap: wrap;
 }
 
@@ -64,21 +161,22 @@
 }
 
 .entry-title {
-  font-size: 1.75rem;
-  font-weight: 600;
+  font-size: 1.55rem;
+  line-height: 1.2;
+  font-weight: 650;
   color: var(--color-text, #1f2937);
-  margin-bottom: 0.25rem;
+  margin: 0 0 0.3rem;
 }
 
 .entry-date {
   display: block;
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   color: var(--color-text-secondary, #6b7280);
   font-weight: 500;
 }
 
 .entry-meta {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 0.5rem;
 }
@@ -87,47 +185,93 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.35rem 0.75rem;
-  background-color: rgba(139, 92, 246, 0.1);
+  padding: 0.4rem 0.8rem;
+  background: rgba(139, 92, 246, 0.1);
   border-radius: 999px;
-  font-size: 0.85rem;
+  font-size: 0.84rem;
   white-space: nowrap;
-}
-
-.entry-mood::before {
-  content: attr(data-emoji);
-  font-size: 1.1rem;
+  color: var(--color-text, #1f2937);
 }
 
 .mood-label {
-  color: var(--color-text, #1f2937);
-  font-size: 0.85rem;
   font-weight: 500;
+}
+
+.entry-kicker {
+  margin-top: 0.9rem;
+  font-size: 0.74rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(107, 114, 128, 0.85);
+}
+
+.entry-preview {
+  margin: 0.6rem 0 0;
+  max-width: 64ch;
+  color: var(--color-text-secondary, #6b7280);
+  font-size: 1rem;
+  line-height: 1.75;
 }
 
 .entry-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin-bottom: 1.5rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  margin-top: 1rem;
 }
 
 .tag {
-  display: inline-block;
-  padding: 0.25rem 0.75rem;
-  background-color: rgba(139, 92, 246, 0.08);
-  border: 1px solid rgba(139, 92, 246, 0.3);
+  display: inline-flex;
+  align-items: center;
+  padding: 0.28rem 0.72rem;
   border-radius: 999px;
-  font-size: 0.8rem;
+  background: rgba(139, 92, 246, 0.08);
+  border: 1px solid rgba(139, 92, 246, 0.18);
   color: var(--color-text-secondary, #6b7280);
+  font-size: 0.82rem;
   font-weight: 500;
 }
 
+.entry-toggle {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  min-width: 8.75rem;
+  height: fit-content;
+  padding: 0.82rem 1rem;
+  border-radius: 999px;
+  background: rgba(139, 92, 246, 0.12);
+  color: var(--color-text, #1f2937);
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.entry-toggle::after {
+  content: "›";
+  margin-left: 0.4rem;
+  font-size: 1.1rem;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+.journal-entry[open] .entry-toggle {
+  background: rgba(139, 92, 246, 0.2);
+}
+
+.journal-entry[open] .entry-toggle::after {
+  transform: rotate(90deg);
+}
+
 .entry-content {
-  font-size: 1.05rem;
-  line-height: 1.8;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  padding: 0 1.6rem 1.6rem;
+  font-size: 1.03rem;
+  line-height: 1.85;
   color: var(--color-text, #1f2937);
 }
 
@@ -140,7 +284,7 @@
 }
 
 .entry-content strong {
-  font-weight: 600;
+  font-weight: 650;
   color: var(--color-text, #1f2937);
 }
 
@@ -152,43 +296,64 @@
 .entry-content a {
   color: var(--color-accent, #8b5cf6);
   text-decoration: underline;
-  transition: opacity 0.2s ease;
+  text-underline-offset: 0.14em;
 }
 
 .entry-content a:hover {
-  opacity: 0.8;
+  opacity: 0.82;
 }
 
 .no-entries {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 400px;
+  min-height: 240px;
   text-align: center;
   color: var(--color-text-secondary, #6b7280);
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-style: italic;
 }
 
-/* Responsive Design */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 @media (max-width: 768px) {
   .journal-container {
-    padding: 2rem 1rem;
+    padding: 2rem 1rem 3rem;
   }
 
-  .journal-header h1 {
-    font-size: 2rem;
+  .journal-header {
+    margin-bottom: 1.5rem;
   }
 
-  .entry-header {
+  .journal-controls {
+    padding: 1rem;
+    border-radius: 1rem;
+  }
+
+  .entry-summary {
+    padding: 1.25rem 1.1rem 1rem;
     flex-direction: column;
   }
 
   .entry-title {
-    font-size: 1.5rem;
+    font-size: 1.35rem;
   }
 
-  .journal-entry {
-    padding: 1.5rem;
+  .entry-toggle {
+    min-width: 0;
+  }
+
+  .entry-content {
+    padding: 0 1.1rem 1.25rem;
   }
 }

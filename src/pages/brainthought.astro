@@ -1,32 +1,49 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { Image } from "astro:assets";
 import "../styles.css";
 import "../journal.css";
 
 // Read all journal entries
 const files = import.meta.glob("../data/journal/*.md", { eager: true });
+const rawFiles = import.meta.glob("../data/journal/*.md", {
+  eager: true,
+  as: "raw",
+});
 
 interface JournalEntry {
   title: string;
   date: Date;
   mood: string;
   tags: string[];
+  preview: string;
   Content: any;
   slug: string;
 }
+
+const getPreview = (raw: string) => {
+  const body = raw.replace(/^---[\s\S]*?---\s*/, "").trim();
+  const firstBlock = body.split(/\n\s*\n/)[0]?.trim() || "";
+
+  if (firstBlock.length <= 180) {
+    return firstBlock;
+  }
+
+  return `${firstBlock.slice(0, 177).trimEnd()}...`;
+};
 
 // Process all entries
 const entries: JournalEntry[] = Object.entries(files).map(
   ([path, file]: [string, any]) => {
     const slug = path.split("/").pop()?.replace(".md", "") || "";
     const { frontmatter, default: Content } = file;
+    const raw = rawFiles[path] as string;
 
     return {
       title: frontmatter.title,
       date: new Date(frontmatter.date),
       mood: frontmatter.mood,
       tags: frontmatter.tags || [],
+      preview: getPreview(raw),
       Content,
       slug,
     };
@@ -35,6 +52,8 @@ const entries: JournalEntry[] = Object.entries(files).map(
 
 // Sort by date, newest first
 entries.sort((a, b) => b.date.getTime() - a.date.getTime());
+
+const allTags = [...new Set(entries.flatMap((entry) => entry.tags))].sort();
 
 // Format date
 const formatDate = (date: Date) => {
@@ -65,44 +84,98 @@ const moodEmoji: Record<string, string> = {
   <div class="journal-container">
     <div class="journal-header">
       <h1>brainthought</h1>
-      <p class="journal-subtitle">sometimes... my brain has a though</p>
+      <p class="journal-subtitle">
+        a quiet corner for notes, half-formed thoughts, and long private entries
+      </p>
     </div>
+
+    <section class="journal-controls" aria-label="Journal filters">
+      <label class="journal-search">
+        <span class="sr-only">Search journal entries</span>
+        <input
+          type="search"
+          data-journal-search
+          placeholder="Search entries or tags"
+          autocomplete="off"
+        />
+      </label>
+
+      <div class="tag-filter-row" data-tag-filter-row>
+        <button
+          class="tag-filter is-active"
+          type="button"
+          data-tag-filter="all"
+        >
+          All
+        </button>
+        {
+          allTags.map((tag) => (
+            <button class="tag-filter" type="button" data-tag-filter={tag}>
+              #{tag}
+            </button>
+          ))
+        }
+      </div>
+    </section>
 
     <div class="journal-entries">
       {
         entries.map((entry) => {
           const { Content } = entry;
           return (
-            <article class="journal-entry">
-              <div class="entry-header">
-                <div class="entry-title-section">
-                  <h2 class="entry-title">{entry.title}</h2>
-                  <time class="entry-date" datetime={entry.date.toISOString()}>
-                    {formatDate(entry.date)}
-                  </time>
-                </div>
-                <div class="entry-meta">
-                  {entry.mood && (
-                    <span class="entry-mood" data-mood={entry.mood}>
-                      {moodEmoji[entry.mood] || "✦"}
-                      <span class="mood-label">{entry.mood}</span>
-                    </span>
+            <details
+              class="journal-entry"
+              data-entry-card
+              data-title={entry.title.toLowerCase()}
+              data-preview={entry.preview.toLowerCase()}
+              data-tags={entry.tags.join(" ").toLowerCase()}
+            >
+              <summary class="entry-summary">
+                <div class="entry-summary-main">
+                  <div class="entry-header">
+                    <div class="entry-title-section">
+                      <h2 class="entry-title">{entry.title}</h2>
+                      <time
+                        class="entry-date"
+                        datetime={entry.date.toISOString()}
+                      >
+                        {formatDate(entry.date)}
+                      </time>
+                    </div>
+                    <div class="entry-meta">
+                      {entry.mood && (
+                        <span class="entry-mood" data-mood={entry.mood}>
+                          {moodEmoji[entry.mood] || "✦"}
+                          <span class="mood-label">{entry.mood}</span>
+                        </span>
+                      )}
+                    </div>
+                  </div>
+
+                  <div class="entry-kicker">private journal entry</div>
+
+                  <p class="entry-preview">
+                    {entry.preview || "Click to open this entry."}
+                  </p>
+
+                  {entry.tags.length > 0 && (
+                    <div class="entry-tags">
+                      {entry.tags.map((tag) => (
+                        <span class="tag">#{tag}</span>
+                      ))}
+                    </div>
                   )}
                 </div>
-              </div>
 
-              {entry.tags.length > 0 && (
-                <div class="entry-tags">
-                  {entry.tags.map((tag) => (
-                    <span class="tag">#{tag}</span>
-                  ))}
-                </div>
-              )}
+                <span class="entry-toggle" aria-hidden="true">
+                  Read more
+                </span>
+              </summary>
 
               <div class="entry-content">
                 <Content />
               </div>
-            </article>
+            </details>
           );
         })
       }
@@ -115,5 +188,67 @@ const moodEmoji: Record<string, string> = {
         </div>
       )
     }
+
+    <div class="no-entries" data-no-results hidden>
+      <p>no entries match that search yet</p>
+    </div>
   </div>
+
+  <script>
+    const searchInput = document.querySelector(
+      "[data-journal-search]",
+    ) as HTMLInputElement | null;
+    const tagButtons = Array.from(
+      document.querySelectorAll<HTMLButtonElement>("[data-tag-filter]"),
+    );
+    const cards = Array.from(
+      document.querySelectorAll<HTMLDetailsElement>("[data-entry-card]"),
+    );
+    const noResults = document.querySelector(
+      "[data-no-results]",
+    ) as HTMLElement | null;
+
+    let activeTag = "all";
+
+    const normalize = (value: string) => value.toLowerCase().trim();
+
+    const applyFilters = () => {
+      const query = normalize(searchInput?.value || "");
+      let visibleCount = 0;
+
+      cards.forEach((card) => {
+        const title = card.dataset.title || "";
+        const preview = card.dataset.preview || "";
+        const tags = card.dataset.tags || "";
+        const matchQuery =
+          !query ||
+          [title, preview, tags].some((value) => value.includes(query));
+        const matchTag =
+          activeTag === "all" || tags.split(" ").includes(activeTag);
+        const isVisible = matchQuery && matchTag;
+
+        card.hidden = !isVisible;
+        if (isVisible) visibleCount += 1;
+      });
+
+      if (noResults) {
+        noResults.hidden = visibleCount !== 0;
+      }
+    };
+
+    tagButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        activeTag = button.dataset.tagFilter || "all";
+
+        tagButtons.forEach((item) => {
+          item.classList.toggle("is-active", item === button);
+        });
+
+        applyFilters();
+      });
+    });
+
+    searchInput?.addEventListener("input", applyFilters);
+    applyFilters();
+  </script>
 </Layout>
