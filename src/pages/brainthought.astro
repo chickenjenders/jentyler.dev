@@ -1,0 +1,119 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import "../styles.css";
+import "../journal.css";
+
+// Read all journal entries
+const files = import.meta.glob("../data/journal/*.md", { eager: true });
+
+interface JournalEntry {
+  title: string;
+  date: Date;
+  mood: string;
+  tags: string[];
+  Content: any;
+  slug: string;
+}
+
+// Process all entries
+const entries: JournalEntry[] = Object.entries(files).map(
+  ([path, file]: [string, any]) => {
+    const slug = path.split("/").pop()?.replace(".md", "") || "";
+    const { frontmatter, default: Content } = file;
+
+    return {
+      title: frontmatter.title,
+      date: new Date(frontmatter.date),
+      mood: frontmatter.mood,
+      tags: frontmatter.tags || [],
+      Content,
+      slug,
+    };
+  },
+);
+
+// Sort by date, newest first
+entries.sort((a, b) => b.date.getTime() - a.date.getTime());
+
+// Format date
+const formatDate = (date: Date) => {
+  return date.toLocaleDateString("en-US", {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+};
+
+// Mood emoji mapping
+const moodEmoji: Record<string, string> = {
+  contemplative: "🤔",
+  happy: "✨",
+  sad: "🌧️",
+  anxious: "⚡",
+  creative: "🎨",
+  inspired: "💡",
+  tired: "🌙",
+  peaceful: "☮️",
+  chaotic: "🌪️",
+  reflective: "🪞",
+};
+---
+
+<Layout title="brainthought — thoughts and musings">
+  <div class="journal-container">
+    <div class="journal-header">
+      <h1>brainthought</h1>
+      <p class="journal-subtitle">sometimes... my brain has a though</p>
+    </div>
+
+    <div class="journal-entries">
+      {
+        entries.map((entry) => {
+          const { Content } = entry;
+          return (
+            <article class="journal-entry">
+              <div class="entry-header">
+                <div class="entry-title-section">
+                  <h2 class="entry-title">{entry.title}</h2>
+                  <time class="entry-date" datetime={entry.date.toISOString()}>
+                    {formatDate(entry.date)}
+                  </time>
+                </div>
+                <div class="entry-meta">
+                  {entry.mood && (
+                    <span class="entry-mood" data-mood={entry.mood}>
+                      {moodEmoji[entry.mood] || "✦"}
+                      <span class="mood-label">{entry.mood}</span>
+                    </span>
+                  )}
+                </div>
+              </div>
+
+              {entry.tags.length > 0 && (
+                <div class="entry-tags">
+                  {entry.tags.map((tag) => (
+                    <span class="tag">#{tag}</span>
+                  ))}
+                </div>
+              )}
+
+              <div class="entry-content">
+                <Content />
+              </div>
+            </article>
+          );
+        })
+      }
+    </div>
+
+    {
+      entries.length === 0 && (
+        <div class="no-entries">
+          <p>no thoughts yet... the mind is quiet</p>
+        </div>
+      )
+    }
+  </div>
+</Layout>
